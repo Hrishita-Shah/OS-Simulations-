@@ -262,6 +262,21 @@
 
   <div class="container2" >
 <div class="left-child" style="background-color:white;">
+<div class="" style="background-color:brown;margin:20px;height:max-content;color:white;padding-left:80px;padding-right:80px;">
+Memory
+<div class="">
+dcd
+</div>
+<div class="">
+dcd
+</div>
+<div class="">
+dcd
+</div>
+<div class="">
+dcd
+</div>
+</div>
 
 </div>
 
@@ -269,26 +284,21 @@
       <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Input Values</h2>
 
       <form>
+        <div>
+            <label class="text-gray-700 dark:text-gray-200" for="username">Enter the total memory available ( in Bytes ) : </label>
+            <input id="memory" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+        </div>
           <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
               <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="username">Input 1</label>
-                  <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                  <label class="text-gray-700 dark:text-gray-200" for="username">Enter the block size ( in Bytes) : </label>
+                  <input id="block" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
               </div>
 
               <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Input 2</label>
-                  <input id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                  <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Enter the number of processes :</label>
+                  <input id="process" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
               </div>
 
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="password">Input 3</label>
-                  <input id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Input 4</label>
-                  <input id="passwordConfirmation" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
           </div>
 
           <div class="flex justify-end mt-6">
@@ -340,4 +350,7 @@
 
     <!-- Footer ends -->
   </body>
+  <script type="text/javascript">
+    var memory = document.getElementById("memory").value;
+  </script>
 </html>
