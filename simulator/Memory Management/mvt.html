@@ -261,40 +261,46 @@
     </aside>
 
   <div class="container2" >
-<div class="left-child" style="background-color:white;">
+    <div class="left-child" style="background-color:white;">
+     
+      
 
 </div>
 
   <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800" class="right-child" style="background-color:#F9FBE7;">
-      <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Input Values</h2>
-
-      <form>
-          <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="username">Input 1</label>
-                  <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Input 2</label>
-                  <input id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="password">Input 3</label>
-                  <input id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Input 4</label>
-                  <input id="passwordConfirmation" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
+    <div class="flex justify-center">
+        <div class="w-96 mt-4">
+          <div class="flex flex-col mb-4">
+            <label class="mb-2" for="totalMemSize">Enter Total Memory Size</label>
+            <input class="w-full px-4 py-2 border border-gray-300 rounded" id="totalMemSize" name="mem_size" placeholder="Total Memory Size" type="text" />
           </div>
-
-          <div class="flex justify-end mt-6">
-              <button class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Simulate</button>
+          <div class="flex flex-col mb-4">
+            <label class="mb-2" for="sel1">Allocation Method</label>
+            <select class="w-full px-4 py-2 border border-gray-300 rounded" id="sel1">
+              <option>Best Fit</option>
+              <option>First Fit</option>
+              <option>Worst Fit</option>
+            </select>
           </div>
-      </form>
+          <button type="submit" id="submitBtn" class="mb-4 px-4 py-2 bg-yellow-500 text-white rounded">Submit</button>
+          <div class="flex flex-col mb-4">
+            <label class="mb-2" for="requestId">Request ID</label>
+            <input class="w-full px-4 py-2 border border-gray-300 rounded" id="requestId" name="req_size" placeholder="Request ID" type="text" />
+          </div>
+          <div class="flex flex-col mb-4">
+            <label class="mb-2" for="requestSize">Enter size of New Request</label>
+            <input class="w-full px-4 py-2 border border-gray-300 rounded" id="requestSize" name="req_size" placeholder="Request Size" type="text" />
+          </div>
+          <button type="submit" class="mb-4 px-4 py-2 bg-yellow-500 text-white rounded" id="submitRequestBtn">Make request!</button>
+          <div class="flex flex-col mb-4">
+            <label class="mb-2" for="removeNum">Block to Empty</label>
+            <input class="w-full px-4 py-2 border border-gray-300 rounded" id="removeNum" name="req_size" placeholder="Empty a block" type="text" />
+          </div>
+          <button type="submit" class="mb-4 px-4 py-2 bg-yellow-500 text-white rounded" id="removeBtn">Empty Block</button>
+          <p id="requestMsg" class="ml-2"></p>
+        </div>
+      </div>
+    </div>
   </section>
 
 
