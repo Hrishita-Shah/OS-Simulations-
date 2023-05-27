@@ -6,7 +6,7 @@ var row = {
 	size: ""
 };
 var totalsize;
-var numblocks;
+var numblocks=0;
 
 var submitBtn = document.querySelector('#submitBtn');
 //console.log('Welcome!');
@@ -68,6 +68,22 @@ function getInitValues() {
 						};
 						filled.push(row);
 						alloc = 1;
+						//dcdcdc
+                        numblocks++;
+						console.log('Welcome'+numblocks);
+						var template = "<label class='col-form-label' style='color:white;font-size:20px;font-weight:20px;'>Enter Block Sizes</label>"
+						var i;
+						for (i = 0; i < numblocks; i++) {
+							template = template + "<div class='' style='display:block; margin:20px;border:10px solid black' type='text' class='blockInput' id='blockSize" + i + "'>Block</div>";
+						}
+						template += "<div id='submitBlockBtn' class='mt-9 px-4 py-2 bg-green-500 text-white rounded-md' style='margin-bottom:20px;'>Submit</div>";
+						if(numblocks > 0)
+							render(template, document.querySelector('#blockContainer'));
+						else
+							render('Please enter the number of blocks', document.querySelector('#requestMsg'));
+					
+
+						//sdscs
 						render('Allocated from ' + row["start"] + ' to ' + row["end"] + ' to request', document.querySelector('#requestMsg'));
 					}
 				}
@@ -112,6 +128,19 @@ function getInitValues() {
 				};
 				filled.push(row);
 				alloc = 1;
+				numblocks++;
+				// console.log('Welcome'+numblocks);
+				var template = "<label class='col-form-label' style='color:white;font-size:20px;font-weight:20px;'>Enter Block Sizes</label>"
+				var i;
+				for (i = 0; i < numblocks; i++) {
+					template = template + "<div class='' style='display:block; background-color:white; margin:20px;border:10px solid black' type='number' class='blockInput' id='blockSize' > Block"+i+"</div>";
+				}
+				
+				if(numblocks > 0)
+					render(template, document.querySelector('#blockContainer'));
+				else
+					render('Please enter the number of blocks', document.querySelector('#requestMsg'));
+			
 				render('Allocated from ' + row["start"] + ' to ' + row["end"] + ' to request', document.querySelector('#requestMsg'));
 			}
 		} else if (algo.value === 'Worst Fit') {
@@ -152,6 +181,22 @@ function getInitValues() {
 				};
 				filled.push(row);
 				alloc = 1;
+
+				numblocks++;
+				console.log('Welcome'+numblocks);
+				var template = "<label class='col-form-label' style='color:white;font-size:20px;font-weight:20px;'>Enter Block Sizes</label>"
+				var i;
+				for (i = 0; i < numblocks; i++) {
+					template = template + "<div class='' style='display:block; margin:20px;border:10px solid black' type='text' class='blockInput' id='blockSize" + i + "'>Block</div>";
+				}
+				template += "<div id='submitBlockBtn' class='mt-9 px-4 py-2 bg-green-500 text-white rounded-md' style='margin-bottom:20px;'>Submit</div>";
+				if(numblocks > 0)
+					render(template, document.querySelector('#blockContainer'));
+				else
+					render('Please enter the number of blocks', document.querySelector('#requestMsg'));
+			
+
+
 				render('Allocated from ' + row["start"] + ' to ' + row["end"] + ' to request', document.querySelector('#requestMsg'));
 			}
 		}
@@ -159,29 +204,45 @@ function getInitValues() {
 			render("Couldn't allocate request", document.querySelector('#requestMsg'));
 		// console.log(filled);
 	}
-
 	function removeBlock() {
 		var remove = document.querySelector('#removeNum').value;
-		//console.log(filled.length);
-		var found = 0;
-		for (var i = filled.length - 1; i >= 0; i--) {
-			if (filled[i]["id"] == remove) {
-				found++;
-				var start = parseInt(filled[i]["start"]);
-				var end = parseInt(filled[i]["end"]);
-				//console.log(start);
-				//console.log(end);
-				filled.splice(i, 1);
-				break;
-			}
+		var removedBlockIndex = -1;
+	  
+		// Find the index of the block to remove
+		for (var i = 0; i < filled.length; i++) {
+		  if (filled[i].id === remove) {
+			removedBlockIndex = i;
+			break;
+		  }
 		}
-		if (found)
-			render("Freed " + start + " to " + end, document.querySelector('#requestMsg'));
-		else
-			render("Cannot remove what does not exist", document.querySelector('#requestMsg'));
-		for (var i = start; i < end; i++)
+	  
+		if (removedBlockIndex !== -1) {
+		  var removedBlock = filled.splice(removedBlockIndex, 1)[0];
+		  var start = parseInt(removedBlock.start);
+		  var end = parseInt(removedBlock.end);
+	  
+		  // Update the memory array
+		  for (var i = start; i < end; i++) {
 			memory[i] = -1;
-	}
+		  }
+	  
+		  // Remove the block input from the DOM
+		  var blockSizeElement = document.querySelector('#blockSize' + removedBlockIndex);
+		  if (blockSizeElement) {
+			blockSizeElement.remove();
+		  }
+	  
+		  // Update the numblocks variable
+		  numblocks--;
+	  
+		  render("Freed " + start + " to " + end, document.querySelector('#requestMsg'));
+		} else {
+		  render("Cannot remove what does not exist", document.querySelector('#requestMsg'));
+		}
+	  }
+	  
+	  
+	  
 }
 
 function render(template, node) {
