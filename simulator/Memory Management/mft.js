@@ -59,7 +59,10 @@ function getInitValues() {
 			if(blockSum > totalsize)
 				render('Entered block sizes do not match the total size! Re-enter the block sizes.', document.querySelector('#requestMsg'));
 			else
+			{
 				render('Block sizes set successfully', document.querySelector('#requestMsg'));
+				alert('Block sizes set successfully');
+			}
 			var requestBtn = document.querySelector('#submitRequestBtn');
 			requestBtn.onclick = handleRequest;
 
@@ -80,6 +83,9 @@ function getInitValues() {
 						//console.log(filled[i]);
 						if(parseInt(blocks[i]) >= parseInt(requestSize) && filled[i] == 0) {
 							filled[i] = 1;
+							const divEle = document.getElementById('blockSize' + i);
+							console.log('#blockSize' + i);
+              divEle.classList.add("bg-gray-300", "text-gray-600", "cursor-not-allowed","opacity-50");
 							render('Allocated block ' + i + ' to the request', document.querySelector('#requestMsg'));
 
 							alloc = i;
@@ -101,6 +107,9 @@ function getInitValues() {
 						i = bestIndex;
 						filled[i] = 1;
 						render('Allocated block ' + i + ' to the request', document.querySelector('#requestMsg'));
+						const divEle1 = document.getElementById('blockSize' + i);
+						console.log('#blockSize' + i);
+						divEle1.classList.add("bg-gray-300", "text-gray-600", "cursor-not-allowed","opacity-50");
 						alloc = i;
 					}
 				}
@@ -134,6 +143,9 @@ function getInitValues() {
 			else {
 				filled[parseInt(remove)] = 0;
 				render('Emptied block ' + remove, document.querySelector('#requestMsg'));
+				const divEle1 = document.getElementById('blockSize' + i);
+				console.log('#blockSize' + i);
+				divEle1.classList.remove("bg-gray-300", "text-gray-600", "cursor-not-allowed","opacity-50");
 			}
 		}
 	}
