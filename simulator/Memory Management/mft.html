@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
       <script src="https://cdn.tailwindcss.com"></script>
-      
+
       <link rel="stylesheet" href="../simulator.css">
     <title></title>
   </head>
@@ -262,133 +262,68 @@
     </aside>
 
   <div class="container2" >
-<div class="left-child" style="background-color:white;">
-<div class="" style="background-color:brown;margin:20px;height:max-content;color:white;padding-left:80px;padding-right:80px;">
-Memory
+<div class="left-child central" style="background-color:white;"><center>
+  Memory
+<div class="backimg" style="background-color:brown;margin:20px;height:max-content;color:black;padding-left:80px;padding-right:80px;">
+RAM Chip
 <div class="row">
     <div
       id="blockContainer"
       class="form-group"
-      style="margin-left: 50px; float: left"
     ></div>
   </div>
 </div>
-
+</center>
 </div>
-
-  <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800" class="right-child" style="background-color:#F9FBE7;">
-      
-    <div class="container" style="margin: 5rem auto">
-        <br />
-  
-        <div class="row">
-          <div class="form-group" style="margin-left: 50px; float: left">
-            <label class="col-form-label" for="inputDefault"
-              >Enter Total Memory Size
-            </label>
-            <input
-              class="form-control"
-              id="totalMemSize"
-              name="mem_size"
-              placeholder="Total Memory Size"
-              type="text"
-              size="35"
-            />
-          </div>
-          <div class="form-group" style="margin-left: 50px; float: left">
-            <label class="col-form-label" for="inputDefault"
-              >Enter Total Number of Blocks</label
-            >
-            <input
-              class="form-control"
-              id="numBlocks"
-              name="block_no"
-              placeholder="# Blocks"
-              type="text"
-              size="35"
-            />
-          </div>
-          <!-- <input type='text' id='totalMemSize'>
-                              <input type='text' id='numBlocks'> -->
-          <!-- <button id='submitBtn'>Submit</button> -->
-          <div class="form-group" style="margin-left: 50px; float: left">
-            <label class="col-form-label" for="sel1">Allocation Method</label>
-            <select class="form-control" id="sel1">
-              <option>Best Fit</option>
-              <option>First Fit</option>
-              <option>Worst Fit</option>
-            </select>
-          </div>
-        </div>
-        <button
-          type="submit"
-          id="submitBtn"
-          class="btn btn-primary"
-          style="margin-left: 36px"
-        >
-          Submit
-        </button>
-        <br />
-        
-        <div class="row">
-          <div id="#requestContainer">
-            <div class="form-group" style="margin-left: 50px; float: left">
-              <label class="col-form-label" for="inputDefault"
-                >Enter size of New Request</label
-              >
-              <input
-                class="form-control"
-                id="requestSize"
-                name="req_size"
-                placeholder="Request Size"
-                type="text"
-                size="35"
-              />
-            </div>
-            <!-- <input type='text' id='requestSize'></input> -->
-            <!-- <button id='submitRequestBtn'>Make request!</button> -->
-            <!-- <p id='requestMsg'></p> -->
-          </div>
-        </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          style="margin-left: 36px"
-          id="submitRequestBtn"
-        >
-          Make request!
-        </button>
-        <div class="row">
-          <div id="#removeContainer">
-            <div class="form-group" style="margin-left: 50px; float: left">
-              <label class="col-form-label" for="inputDefault"
-                >Block to Empty</label
-              >
-              <input
-                class="form-control"
-                id="removeNum"
-                name="req_size"
-                placeholder="Empty a block"
-                type="text"
-                size="35"
-              />
-            </div>
-            <!-- <input type='text' id='requestSize'></input> -->
-            <!-- <button id='submitRequestBtn'>Make request!</button> -->
-            <!-- <p id='requestMsg'></p> -->
-          </div>
-        </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          style="margin-left: 36px; float: left"
-          id="removeBtn"
-        >
-          Empty Block
-        </button>
-        <p id="requestMsg" style="float: left; margin-left: 50px"></p>
+<section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800" style="background-color:#F9FBE7;">
+  <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Input Values</h2>
+  <div class="container mx-auto" style="margin: 1rem auto;">
+    <div class="flex justify-center">
+      <div class="w-96 ">
+        <div class="flex flex-col mb-4">
+        <label class="col-form-label mb-2" for="inputDefault">Enter Total Memory Size</label>
+        <input class="w-full px-4 py-2 border border-gray-300 rounded" id="totalMemSize" name="mem_size" placeholder="Total Memory Size" type="text" size="35">
       </div>
-  </section>
+      <div class="flex flex-col mb-4">
+        <label class="col-form-label mb-2" for="inputDefault">Enter Total Number of Blocks</label>
+        <input class="w-full px-4 py-2 border border-gray-300 rounded" id="numBlocks" name="block_no" placeholder="# Blocks" type="text" size="35">
+      </div>
+      <div class="flex flex-col mb-4">
+        <label class="mb-2" for="sel1">Allocation Method</label>
+        <select class="w-full px-4 py-2 border border-gray-300 rounded" id="sel1">
+          <option>Best Fit</option>
+          <option>First Fit</option>
+          <option>Worst Fit</option>
+        </select>
+      </div>
+
+    <center><button type="submit" id="submitBtn" class="mb-4 px-4 py-2 bg-yellow-500 text-white rounded">Submit</button></center>
+    <br />
+
+    <div class="flex flex-col mb-4 ">
+      <div id="requestContainer" class="">
+        <label class="mb-2" for="inputDefault">Enter size of New Request</label>
+        <input class="w-full px-4 py-2 border border-gray-300 rounded mt-2" id="requestSize" name="req_size" placeholder="Request Size" type="text" size="35">
+      </div>
+    </div>
+    <center><button type="submit" class="mb-4 px-4 py-2 bg-yellow-500 text-white rounded" id="submitRequestBtn">Make request!</button></center>
+
+    <div class="flex flex-col mb-4 ">
+      <div id="removeContainer" class="">
+        <label class="mb-2" for="inputDefault">Block to Empty</label>
+        <input class="fw-full px-4 py-2 border border-gray-300 rounded mt-2" id="removeNum" name="req_size" placeholder="Empty a block" type="text" size="35">
+      </div>
+    </div>
+    <center><button type="submit" class="mb-4 px-4 py-2 bg-yellow-500 text-white rounded" id="removeBtn">Empty Block</button></center>
+    <p id="requestMsg" class="mt-4 ml-8 float-left"></p>
+  </div>
+</div>
+</section>
+
+
+
+
+
 
 
 

@@ -12,12 +12,12 @@ function getInitValues() {
 	numblocks = document.querySelector('#numBlocks').value;
 	var message = 'Read totalsize =' + totalsize + ' and numblocks = ' + numblocks;
 
-	var template = "<label class='col-form-label'>Enter Block Sizes</label>"
+	var template = "<label class='col-form-label' style='color:white;font-size:20px;font-weight:20px;' >Enter Block Sizes</label>"
 	var i;
 	for (i = 0; i < numblocks; i++) {
-		template = template + "<input class='form-control' type='text' class='blockInput' id='blockSize" + i + "'>";
+		template = template + "<input class='form-control' style='display:block; margin:20px;border:10px solid black' type='text' class='blockInput' id='blockSize" + i + "'>";
 	}
-	template += "<button id='submitBlockBtn' class='btn btn-primary' style='margin-top: 36px'>Submit</button>";
+	template += "<button id='submitBlockBtn' class='mt-9 px-4 py-2 bg-green-500 text-white rounded-md' style='margin-bottom:20px;'>Submit</button>";
 	if(numblocks > 0)
 		render(template, document.querySelector('#blockContainer'));
 	else
@@ -30,7 +30,7 @@ function getInitValues() {
 	var i = 0;
 	var blockSizeBtn = document.querySelector('#submitBlockBtn');
 	blockSizeBtn.onclick = getBlockSizes;
-	
+
 	function getBlockSizes() {
 		i = 0;
 		var flag = 0;
@@ -52,7 +52,7 @@ function getInitValues() {
 		else {
 			//check if blocksizes don't exceed the total size
 			var blockSum = 0;
-			for(i = 0; i < numblocks; i++) 
+			for(i = 0; i < numblocks; i++)
 				blockSum += parseInt(blocks[i]);
 			console.log(blockSum);
 			console.log(totalsize);
@@ -120,7 +120,7 @@ function getInitValues() {
 						filled[i] = 1;
 						render('Allocated block ' + i + ' to the request', document.querySelector('#requestMsg'));
 						alloc = i;
-					}					
+					}
 				}
 			}
 			if(alloc == -1)

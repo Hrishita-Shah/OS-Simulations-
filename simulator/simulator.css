@@ -11,6 +11,14 @@ flex-grow: 1;
   display: flex;
   flex-grow:2;
 }
+.central{
+  display: flex;
+  justify-content: center;
+}
+
+.backimg{
+    background-image: url('https://thumbs.dreamstime.com/b/pcb-background-7955331.jpg');
+}
 .right-child{
   display: flex;
 flex-grow: 1;
@@ -81,5 +89,5 @@ flex-grow: 1;
   margin-bottom:10px;
 }
 .values{
-  
+
 }
