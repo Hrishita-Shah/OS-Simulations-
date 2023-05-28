@@ -268,7 +268,7 @@
 
   <!-- Section: Design Block -->
   <section class="mb-32 text-gray-800">
-    <h1 class="text-2xl font-bold mb-12 text-center">MFT-FIXED SIZE PARTITION</h1>
+    <h1 class="text-5xl font-bold mb-12 text-center">MFT-FIXED SIZE PARTITION</h1>
 
     <div class="flex flex-wrap mb-12">
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
@@ -284,16 +284,17 @@
       </div>
 
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-        <h3 class="text-2xl font-bold mb-4">MFT</h3>
+        <h3 class="text-3xl font-bold mb-4 align-center">MFT</h3>
+
         <div class="text-red-600 text-sm mb-4 flex items-center font-medium">
 
 
         </div>
-        <p class="text-black-500 mb-6">
+        <p class="text-black-500 mb-6 text-lg">
           This is the oldest and simplest technique used to put more than one process in the main memory. In this partitioning, the number of partitions (non-overlapping) in RAM is fixed but the size of each partition may or may not be the same. As it is a contiguous allocation, hence no spanning is allowed. Here partitions are made before execution or during system configure.
 
         </p>
-        <p class="text-black-500">
+        <p class="text-black-500 text-lg">
           As illustrated in above figure, first process is only consuming 1MB out of 4MB in the main memory.
           Hence, Internal Fragmentation in first block is (4-1) = 3MB.
           Sum of Internal Fragmentation in every block = (4-1)+(8-7)+(8-7)+(16-14)= 3+1+1+2 = 7MB.
@@ -319,9 +320,9 @@
       </div>
 
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-        <h3 class="text-2xl font-bold mb-4">First Fit</h3>
+        <h3 class="text-3xl font-bold mb-4">First Fit</h3>
 
-        <p class="text-black-500">
+        <p class="text-black-500 text-lg">
            This method keeps the free/busy list of jobs organized by memory location, low-ordered to high-ordered memory. In this method, first job claims the first available memory with space more than or equal to it’s size. The operating system doesn’t search for appropriate partition but just allocate the job to the nearest memory partition available with sufficient size
         </p>
       </div>
@@ -341,16 +342,15 @@
       </div>
 
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-        <h3 class="text-2xl font-bold mb-4"></h3>
-        <h3 class="text-2xl font-bold mb-4">Best Fit</h3>
+        <h3 class="text-3xl font-bold mb-4">Best Fit</h3>
 
-        <p class="text-black-500">
+        <p class="text-black-500 text-lg">
 
 This method keeps the free/busy list in order by size – smallest to largest. In this method, the operating system first searches the whole of the memory according to the size of the given job and allocates it to the closest-fitting free partition in the memory, making it able to use memory efficiently. Here the jobs are in the order from smallest job to largest job.
         </p>
       </div>
     </div>
-    <div class="flex flex-wrap lg:flex-row-reverse mb-12">
+    <div class="flex flex-wrap lg:flex-row-reverse mb-12 lg:items-center">
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
         <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
           style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
@@ -362,15 +362,14 @@ This method keeps the free/busy list in order by size – smallest to largest. I
           </a>
         </div>
       </div>
-
+    
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-        <h3 class="text-2xl font-bold mb-4">Worst Fit</h3>
-
-        <p class="text-g-black-500">
-          In this allocation technique, the process traverses the whole memory and always search for the largest hole/partition, and then the process is placed in that hole/partition. It is a slow process because it has to traverse the entire memory to search the largest hole.
-        </p>
+        <h3 class="text-3xl font-bold mb-4">Worst Fit</h3>
+    
+        <p class="text-g-black-500 text-lg">In this allocation technique, the process traverses the whole memory and always search for the largest hole/partition, and then the process is placed in that hole/partition. It is a slow process because it has to traverse the entire memory to search the largest hole.</p>
       </div>
     </div>
+    
   </section>
   <!-- Section: Design Block -->
 
@@ -398,8 +397,8 @@ This method keeps the free/busy list in order by size – smallest to largest. I
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
      <div class="third" >
-         <button class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 padd" >Team Details</button>
-       <button class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 padd" >FAQ's</button>
+         <button class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-600 rounded-lg hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 padd" ><a href="../../team.html">Team Details</button></a>
+       <button class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-600 rounded-lg hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 padd" ><a href="../../faq.html">FAQ's</button></a>
 
      </div><center>
     <hr style="width:80%" class="spacing"></center>
