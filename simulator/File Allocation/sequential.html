@@ -261,44 +261,144 @@
     </aside>
 
   <div class="container2" >
-<div class="left-child" style="background-color:white;">
+    <div>
+        <h1 class="some font-bold text-4xl text-center text-red-600 leading-tight mt-8 mx-auto">Sequential Allocation</h1>
 
+
+          </div>
+          <br><br>
+          
+          <div id="sequ" class="h-screen flex flex-col justify-center items-center">
+            <div class="visible1">
+              <label class="block mb-2" for="nof">Enter the size of memory (number of blocks)</label>
+              <input id="nof" type="number" class="bg-red-500 px-4 py-2 rounded-md text-white focus:outline-none focus:bg-red-600">
+              <button class="mt-4 px-4 py-2 bg-yellow-500 text-white rounded s_done" onclick="getSize()">Submit</button>
+            </div>
+          
+            <br><br>
+          
+            <div class="s_form s_hide " id="vis2">
+              <label class="block mb-2" for="file_name">File name:</label>
+              <input id="file_name" type="text" class="bg-red-500 px-4 py-2 rounded-md text-white focus:outline-none focus:bg-red-600">
+              <br>
+              <label class="block mb-2" for="file_size">File size (number of blocks):</label>
+              <input id="file_size" type="number" class="bg-red-500 px-4 py-2 rounded-md text-white focus:outline-none focus:bg-red-600">
+              <button class="mt-4 px-4 py-2 bg-yellow-500 text-white rounded s_done" onclick="addFile()">Add</button>
+              <br>
+            </div>
+          </div>
+          
+          
+          
+            <canvas id="can" class="w-1500 h-50"></canvas>
+            <p id="op1"></p>
+            <p id="op"></p>
+          </div>
+          
+        </div>
+    
+    
+        
+    <script>
+        canv = document.getElementById("can");
+        var ctx = canv.getContext("2d");
+    
+        var colors = new Array(200);
+        var file_sizes = new Array(200);
+        var file_names = new Array(200);
+        var starts = new Array(200);
+        var ends = new Array(200);
+        var count = 0;
+        var point = -1;
+        var memSize;
+        var a = 0, b = 0;
+        function getSize(){
+            memSize = document.getElementById("nof").value;
+            if(memSize != ""){
+                vis2 = document.getElementById("vis2");
+                vis2.style.visibility = "visible";
+                vis2.classList.remove("s_hide");
+            }
+            else
+                alert("Please enter valid size!");
+        }
+        
+        function addFile(){
+            if(count == 0){
+                for(var i = 0; i < 200; i++)
+                {
+                    colors[i] = color();
+                    file_sizes[i] = 0;
+                     file_names[i] = "";
+                     starts[i] = 0;
+                     ends[i] = 0;
+                }
+                 start = 0;
+                 end = 0;
+             
+            }
+            var name = document.getElementById("file_name").value;
+            var size = document.getElementById("file_size").value;
+            size = parseInt(size);
+             if(name != "" && size != "" ){
+                if(point + size > memSize - 1){
+                    alert("Cannot allocate!!");
+                }
+                else{
+                    
+                    //console.log(point, count, size);
+                    starts[count] = point + 1;
+                    point = ends[count] = point + size;
+                    
+                    file_names[count] = name;
+                    file_sizes[count] = size;
+                    count++;
+                    showOutput();
+                }
+                
+            }
+            else{
+                alert("Please enter all details!!");
+            }
+    
+        }
+    
+        function showOutput(){
+            var str = "";
+            ctx.fillStyle = "#f1f1f1";
+            ctx.fillRect(0, 0, canv.width, canv.height);
+    
+            document.getElementById("op1").innerHTML = "File______Start_____End_____Size";
+            for(var i = 0; i < count; i++){
+                str += file_names[i]  + "________" + starts[i] + "________" + ends[i] + "________" + file_sizes[i] + "<br />";
+                ctx.fillStyle = colors[i];
+                ctx.fillRect(starts[i] * canv.width / memSize, 0, (ends[i] + 1 - starts[i]) * canv.width / memSize, canv.height);
+                if ((ends[i] - starts[i]) * canv.width / memSize > 30){
+                    ctx.font = "50px Georgia";
+                }
+                else{
+                    ctx.font = "20px Georgia";
+                }
+                ctx.strokeText(file_names[i], starts[i] * canv.width / memSize, canv.height * 3 / 4);
+            }
+            document.getElementById("op").innerHTML = str;
+            
+        }
+    
+        function color(){
+                var hex = '0123456789abcdef';
+                var col = '#';
+                for (i = 0; i < 6; i++)
+                    col += hex[Math.floor(Math.random()*16)]
+                return col;
+            }
+        
+    </script>
 </div>
 
-  <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800" class="right-child" style="background-color:#F9FBE7;">
-      <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Input Values</h2>
+ 
 
-      <form>
-          <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="username">Input 1</label>
-                  <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Input 2</label>
-                  <input id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="password">Input 3</label>
-                  <input id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Input 4</label>
-                  <input id="passwordConfirmation" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-          </div>
-
-          <div class="flex justify-end mt-6">
-              <button class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Simulate</button>
-          </div>
-      </form>
-  </section>
-
-
-
+</div></div>
 
   </div>
 </div>

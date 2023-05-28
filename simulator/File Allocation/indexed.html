@@ -259,44 +259,201 @@
 
 
     </aside>
-
-  <div class="container2" >
-<div class="left-child" style="background-color:white;">
-
-</div>
-
-  <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800" class="right-child" style="background-color:#F9FBE7;">
-      <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Input Values</h2>
-
-      <form>
-          <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="username">Input 1</label>
-                  <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Input 2</label>
-                  <input id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="password">Input 3</label>
-                  <input id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
-
-              <div>
-                  <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Input 4</label>
-                  <input id="passwordConfirmation" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-              </div>
+    <div class="container2">
+        <div>
+          <h1 class="some font-bold text-4xl text-center text-red-600 leading-tight mt-8 mx-auto">Indexed Allocation</h1>
+        </div>
+        <br><br>
+      
+        <div id="sequ" class="h-screen flex flex-col justify-center items-center">
+          <div class="visible1">
+            <label class="block mb-2" for="nof">Enter the size of memory (number of blocks)</label>
+            <input id="nof" type="number" class="bg-red-500 px-4 py-2 rounded-md text-white focus:outline-none focus:bg-red-600">
+            <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded s_done" onclick="getSize()">Submit</button>
+            
+          <div class="flex">
+            <div id="table" class="ml-8"></div>
+            <p id="op" class="ml-4"></p>
           </div>
-
-          <div class="flex justify-end mt-6">
-              <button class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Simulate</button>
           </div>
-      </form>
-  </section>
+      
+          <br><br>
+      
+          <div class="s_form s_hide" id="vis2">
+            <label class="block mb-2" for="file_name">File name:</label>
+            <input id="file_name" type="text" class="bg-red-500 px-4 py-2 rounded-md text-white focus:outline-none focus:bg-red-600">
+            <br>
+            <label class="block mb-2" for="file_size">File size (number of blocks):</label>
+            <input id="file_size" type="number" class="bg-red-500 px-4 py-2 rounded-md text-white focus:outline-none focus:bg-red-600">
+            <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded s_done" onclick="addFile()">Add</button>
+            <br>
+          </div>
+      
+        </div>
+      
+        <canvas id="can" class=""></canvas>
+        <p class="ml-8" id="op1"></p>
+      </div>
+      
+      
+      
+    
+    <script>
+      canv = document.getElementById("can");
+      var ctx = canv.getContext("2d");
+    
+      var used, next, remaining, allocations;
+      var colors = new Array(200);
+      var file_sizes = new Array(200);
+      var file_names = new Array(200);
+      var starts = new Array(200);
+      var ends = new Array(200);
+      var count = 0;
+      var point = -1;
+      var memSize;
+      var a = 0,
+        b = 0;
+    
+      function getSize() {
+        memSize = document.getElementById("nof").value;
+    
+        if (memSize != "") {
+          vis2 = document.getElementById("vis2");
+          vis2.style.visibility = "visible";
+          vis2.classList.remove("s_hide");
+    
+          used = new Array(parseInt(memSize));
+          next = new Array(parseInt(memSize));
+          remaining = parseInt(memSize);
+          allocations = new Array(parseInt(memSize));
+          check = new Array(parseInt(memSize));
+          for (var i = 0; i < parseInt(memSize); i++) {
+            allocations[i] = -1;
+            check[i] = -1;
+            used[i] = false;
+            next[i] = -1;
+          }
+        } else alert("Please enter valid size!");
+      }
+    
+      function addFile() {
+        if (count == 0) {
+          for (var i = 0; i < memSize; i++) {
+            if (Math.random() > 0.5) {
+              remaining--;
+              used[i] = true;
+            }
+            next[i] = -1;
+          }
+          for (var i = 0; i < 200; i++) {
+            colors[i] = color();
+            file_sizes[i] = 0;
+            file_names[i] = "";
+            starts[i] = 0;
+            ends[i] = 0;
+          }
+        }
+        var name = document.getElementById("file_name").value;
+        var size = document.getElementById("file_size").value;
+        size = parseInt(size);
+        var cnt = 0;
+        if (name != "" && size != "") {
+          if (size > remaining) {
+            alert("Cannot allocate!!");
+          } else {
+            var prev = -1;
+            for (var i = 0; i < size; i++) {
+              for (var j = 0; j < memSize; j++) {
+                if (!used[j]) {
+                  if (prev != -1) {
+                    next[prev] = j;
+                  }
+                  if (i == 0) starts[count] = j;
+                  prev = j;
+                  allocations[j] = count + 1;
+                  used[j] = true;
+                  break;
+                }
+              }
+            }
+            next[prev] = -1;
+            ends[count] = prev;
+            file_names[count] = name;
+            file_sizes[count] = size;
+            count++;
+            showOutput();
+            remaining -= size;
+          }
+        } else {
+          alert("Please enter all details!!");
+        }
+      }
+    
+      function showOutput() {
+  var str = "";
+  var j;
+  let table = document.createElement("table");
+  table.setAttribute("class", "table table-striped");
+  let thead = document.createElement("thead");
+  let tbody = document.createElement("tbody");
 
+  table.appendChild(thead);
+  table.appendChild(tbody);
+
+  let row_1 = document.createElement("tr");
+  let heading_1 = document.createElement("th");
+  heading_1.setAttribute("scope", "col");
+  heading_1.innerHTML = "Index";
+  let heading_2 = document.createElement("th");
+  heading_2.setAttribute("scope", "col");
+  heading_2.innerHTML = "Memory block";
+
+  row_1.appendChild(heading_1);
+  row_1.appendChild(heading_2);
+
+  thead.appendChild(row_1);
+  var index = 0;
+
+  for (var i = 0; i < count; i++) {
+    for (j = 0; j < memSize; j++) {
+      if (parseInt(allocations[j]) == i + 1 && check[j] == -1) {
+        let row = document.createElement("tr");
+        let row_data_1 = document.createElement("th");
+        row_data_1.setAttribute("scope", "row");
+        row_data_1.innerHTML = index;
+        let row_data_2 = document.createElement("td");
+        row_data_2.innerHTML = j;
+
+        row.appendChild(row_data_1);
+        row.appendChild(row_data_2);
+        tbody.appendChild(row);
+        check[j] == 1;
+        index++;
+      }
+    }
+  }
+
+  // Clear the existing output before displaying new output
+  document.getElementById("op").innerHTML = "";
+
+  // Create a div for the table and append it to the container
+  let tableDiv = document.createElement("div");
+  tableDiv.appendChild(table);
+  tableDiv.setAttribute("class", "inline-block");
+
+  // Append the table div to the container
+  document.getElementById("op1").appendChild(tableDiv);
+}
+
+    
+      function color() {
+        var hex = "0123456789abcdef";
+        var col = "#";
+        for (i = 0; i < 6; i++) col += hex[Math.floor(Math.random() * 16)];
+        return col;
+      }
+    </script>
+    
 
 
 
