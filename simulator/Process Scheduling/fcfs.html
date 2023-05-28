@@ -20,16 +20,14 @@
           <a class="nav-link active btn btn-warning" aria-current="page" href="../../index.html">Home</a>
         </li>
         <li class="nav-item spacing ">
-          <a class="nav-link btn btn-warning" href="./info/Process Scheduling/fcfs.html">Concept Details</a>
+          <a class="nav-link btn btn-warning" href="../../info/Process Scheduling/fcfs.html">Information</a>
         </li>
         <li class="nav-item spacing">
-          <a class="nav-link btn btn-warning" href="./books.html">References</a>
+          <a class="nav-link btn btn-warning" href="../../books.html">References</a>
         </li>
       </ul>
       <span class="navbar-link">
-        <div class="nav-link ">
-          <a class="nav-link btn btn-warning padding" href="./simulator/Process Scheduling/fcfs.html">Simulator</a>
-        </div>
+
       </span>
     </div>
   </div>
@@ -41,11 +39,66 @@
 
 
 
-  <div class="container2" >
-<div class="left-child" style="background-color:white;">
 
-</div>
-  </div>
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>Process Scheduling Simulator</title>
+      <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+      <div class="container">
+          <h1>Process Scheduling Simulator</h1>
+          <hr>
+          <br>
+          <div class="scheduling-options">
+              <label for="scheduling-type">Scheduling Type:</label>
+              <select id="scheduling-type" onchange="selectAlgorithm()">
+                  <option>--Select--</option>
+                  <option value="fcfs">First-Come, First-Served (FCFS)</option>
+                  <option value="sjf">Shortest Job First (SJF)</option>
+                  <option value="round-robin">Round Robin</option>
+                  <option value="priority">Priority</option>
+              </select>
+          </div>
+          <br>
+
+          <div class="process-input">
+              <label for="process-name">Process Name:</label>&emsp;
+              <input type="text" id="process-name"><br><br>
+              <label for="burst-time">Burst Time:</label>&emsp;&emsp;&nbsp;
+              <input type="number" id="burst-time"><br><br>
+              <label for="priority">Priority:</label>&emsp;&emsp;&emsp;&ensp;
+              <input type="number" id="priority"><br><br>
+              <button onclick="addProcess()">Add Process</button>
+              <button onclick="reset()">Reset</button>
+          </div>
+
+          <div class="output">
+              <h2>Output:</h2>
+              <div id="output-table"></div>
+          </div>
+      </div>
+
+      <script src="script.js"></script>
+      <style>
+          body{
+          background-image: url('download.png');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 115%;
+      }
+      </style>
+      <script type="text/javascript" src="script.js"></script>
+  </body>
+  </html>
+
+
+
+
+
+
 </div>
 
 
