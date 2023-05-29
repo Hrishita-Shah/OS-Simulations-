@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Banker's Algorithm</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>Deadlock Avoidance -- Banker's Algorithm</h1>
+    <div class="container">
+        <form id="input-form">
+            <div class="input">
+                <div id="i1">
+                    <label for="num-processes">Enter the number of Processes:</label>
+                    <input type="number" id="num-processes" required><br>
+                </div>
+                <div id="i1">
+                    <label for="num-resources">Enter the number of Resources:</label>
+                    <input type="number" id="num-resources" required><br>
+                </div>
+            </div>
+
+            <h2>Allocation Matrix:</h2>
+            <div id="allocation-matrix"></div>
+
+            <h2>Maximum Matrix:</h2>
+            <div id="max-matrix"></div>
+
+            <h2>Available Resources:</h2>
+            <div id="available-resources"></div>
+
+            <button type="submit">Detect Deadlock</button>
+        </form>
+
+        <div id="output-section"></div>
+    </div>
+
+    <script>
+        function createMatrixInput(numRows, numCols, idPrefix, label) {
+            var parentElement = document.getElementById(label);
+            parentElement.innerHTML = '';
+
+            for (var i = 0; i < numRows; i++) {
+                var rowDiv = document.createElement('div');
+                rowDiv.className = 'row-div';
+
+                for (var j = 0; j < numCols; j++) {
+                    var columnDiv = document.createElement('div');
+                    columnDiv.className = 'column-div';
+
+                    var input = document.createElement('input');
+                    input.type = 'number';
+                    input.className = 'matrix-input';
+                    input.required = true;
+                    var inputId = idPrefix + '-' + i + '-' + j;
+                    input.id = inputId;
+
+                    var label = document.createElement('label');
+                    label.htmlFor = inputId;
+                    label.textContent = 'P' + i + ' -> R' + j + ':';
+
+                    columnDiv.appendChild(label);
+                    columnDiv.appendChild(input);
+                    rowDiv.appendChild(columnDiv);
+                }
+
+                parentElement.appendChild(rowDiv);
+            }
+        }
+
+
+        function createAvailableResourceInputs(numResources) {
+            var parentElement = document.getElementById('available-resources');
+            parentElement.innerHTML = '';
+
+            var resourcesDiv = document.createElement('div');
+            resourcesDiv.className = 'resources-div';
+
+            for (var i = 0; i < numResources; i++) {
+                var columnDiv = document.createElement('div');
+                columnDiv.className = 'column-div';
+
+                var input = document.createElement('input');
+                input.type = 'number';
+                input.className = 'resource-input';
+                input.required = true;
+                input.placeholder = 'Resource ' + i;
+
+                columnDiv.appendChild(input);
+                resourcesDiv.appendChild(columnDiv);
+            }
+
+            parentElement.appendChild(resourcesDiv);
+        }
+
+
+        function detectDeadlock(event) {
+            event.preventDefault();
+
+            var numProcesses = parseInt(document.getElementById('num-processes').value);
+            var numResources = parseInt(document.getElementById('num-resources').value);
+            var availableResources = [];
+
+            var allocationMatrix = [];
+            var maxMatrix = [];
+
+            for (var i = 0; i < numProcesses; i++) {
+                var allocRow = [];
+                var maxRow = [];
+
+                for (var j = 0; j < numResources; j++) {
+                    var allocInput = document.getElementById('alloc-matrix-' + i + '-' + j);
+                    allocRow.push(parseInt(allocInput.value));
+
+                    var maxInput = document.getElementById('max-matrix-' + i + '-' + j);
+                    maxRow.push(parseInt(maxInput.value));
+                }
+
+                allocationMatrix.push(allocRow);
+                maxMatrix.push(maxRow);
+            }
+
+            var f = [];
+            var ans = [];
+            var ind = 0;
+
+            for (var k = 0; k < numProcesses; k++) {
+                f[k] = 0;
+            }
+
+            var need = [];
+
+            for (var i = 0; i < numProcesses; i++) {
+                var needRow = [];
+
+                for (var j = 0; j < numResources; j++) {
+                    needRow.push(maxMatrix[i][j] - allocationMatrix[i][j]);
+                }
+
+                need.push(needRow);
+            }
+
+            var resourceInputs = document.getElementsByClassName('resource-input');
+            for (var i = 0; i < resourceInputs.length; i++) {
+                availableResources.push(parseInt(resourceInputs[i].value));
+            }
+
+            var y = 0;
+
+            for (var k = 0; k < numProcesses; k++) {
+                for (var i = 0; i < numProcesses; i++) {
+                    if (f[i] === 0) {
+                        var flag = 0;
+
+                        for (var j = 0; j < numResources; j++) {
+                            if (need[i][j] > availableResources[j]) {
+                                flag = 1;
+                                break;
+                            }
+                        }
+
+                        if (flag === 0) {
+                            ans[ind++] = i;
+
+                            for (var y = 0; y < numResources; y++) {
+                                availableResources[y] += allocationMatrix[i][y];
+                            }
+
+                            f[i] = 1;
+                        }
+                    }
+                }
+            }
+
+            var flag = 1;
+            var outputSection = document.getElementById('output-section');
+            var outputText = '';
+
+            if (flag === 1) {
+                outputText = 'The following system is SAFE Sequence<br>';
+                outputText += 'Safe sequence: ';
+
+                for (var i = 0; i < numProcesses - 1; i++) {
+                    outputText += 'P' + ans[i] + ' -> ';
+                }
+
+                outputText += 'P' + ans[numProcesses - 1];
+            } else {
+                outputText = 'The following system is NOT SAFE';
+            }
+
+            outputSection.innerHTML = outputText;
+        }
+
+        document.getElementById('input-form').addEventListener('submit', detectDeadlock);
+        document.getElementById('num-processes').addEventListener('input', function () {
+            var numProcesses = parseInt(this.value);
+            var numResources = parseInt(document.getElementById('num-resources').value);
+            createMatrixInput(numProcesses, numResources, 'alloc-matrix', 'allocation-matrix');
+            createMatrixInput(numProcesses, numResources, 'max-matrix', 'max-matrix');
+        });
+        document.getElementById('num-resources').addEventListener('input', function () {
+            var numProcesses = parseInt(document.getElementById('num-processes').value);
+            var numResources = parseInt(this.value);
+            createMatrixInput(numProcesses, numResources, 'alloc-matrix', 'allocation-matrix');
+            createMatrixInput(numProcesses, numResources, 'max-matrix', 'max-matrix');
+            createAvailableResourceInputs(numResources);
+        });
+    </script>
+</body>
+
+</html>
