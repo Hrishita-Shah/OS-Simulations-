@@ -45,59 +45,60 @@
 
 	<!DOCTYPE html>
 	<html lang="en" class="no-js">
-		<head> 
-	
-	
+		<head>
+
+
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 			<meta name="description" content="">
 			<meta name="author" content="">
 			<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-		
+
 			<title>Grad School HTML5 Template</title>
-			
+
 			<!-- Bootstrap core CSS -->
 			<link href="../home/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		
+
 			<!-- Additional CSS Files -->
 			<link rel="stylesheet" href="../home/assets/css/fontawesome.css">
 			<link rel="stylesheet" href="../home/assets/css/templatemo-grad-school.css">
 			<link rel="stylesheet" href="../home/assets/css/owl.css">
 			<link rel="stylesheet" href="../home/assets/css/lightbox.css">
-		
-		  
-		  
-		  
-		  
-		 <br><br> 
+
+
+
+
+
+		 <br><br>
 	<br>
 	<br><title>Linked Allocation</title>
-	 
+
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		   <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	 
-	
-	
+
+
+
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 			<meta charset="UTF-8" />
-			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<title>OS Simulator</title>
 			<meta name="description" content="Nifty Modal Window Effects with CSS Transitions and Animations" />
 			<meta name="keywords" content="modal, window, overlay, modern, box, css transition, css animation, effect, 3d, perspective" />
 			<meta name="author" content="Codrops" />
-			<link rel="shortcut icon" href="../favicon.ico"> 
+			<link rel="shortcut icon" href="../favicon.ico">
 			<link rel="stylesheet" type="text/css" href="css/default.css" />
 			<link rel="stylesheet" type="text/css" href="css/component.css" />
 			<script src="js/modernizr.custom.js"></script>
 		</head>
-	
-		<body>
-	<!-- 
+
+		<body style="background-color:#FFD95A;">
+         <center>
+	<!--
 			 <nav class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="container-fluid">
 		<div class="navbar-header">
@@ -110,16 +111,16 @@
 		</ul>
 	  </div>
 	</nav> -->
-	
+
 	<h1 class="some" behavior="alternate" scrollamount=10>Linked Allocation</h1> <br> <br>
 	<div id="sequ">
 		<div class="visible1">
 		<p> Enter the size of memory(number of blocks)</p>
 		<input id="nof" type="number" style="background-color: #f44336!important;">
 		<button class="s_done" onclick="getSize()">Submit</button>
-	
+
 		<br><br>
-	
+
 		<div class="s_form s_hide" id="vis2">
 			<p> Please add file details </p>
 				File name:	<input  style ="background-color: #f44336!important;" id="file_name" type="text">
@@ -162,14 +163,14 @@
 		<p id = "op1"></p>
 		<br><br>
 		<p id = "op" style="background-color:aqua;"></p>
-	
+
 	</body>
-	
+
 	<script>
 		var index = 0;
 		canv = document.getElementById("can");
 		var ctx = canv.getContext("2d");
-	
+
 		var used, next, remaining, allocations;
 		var colors = new Array(200);
 		var file_sizes = new Array(200);
@@ -182,12 +183,12 @@
 		var a = 0, b = 0;
 		function getSize(){
 			memSize = document.getElementById("nof").value;
-	
+
 			if(memSize != ""){
 				vis2 = document.getElementById("vis2");
 				vis2.style.visibility = "visible";
 				vis2.classList.remove("s_hide");
-	
+
 				used = new Array(parseInt(memSize));
 				next = new Array(parseInt(memSize));
 				remaining = parseInt(memSize);
@@ -203,7 +204,7 @@
 			else
 				alert("Please enter valid size!");
 		}
-		
+
 		function addFile(){
 			if(count == 0){
 				for(var i = 0; i < memSize; i++)
@@ -247,11 +248,11 @@
 								used[j] = true;
 								break;
 							}
-	
+
 						}
 					}
 					next[prev] = -1;
-					ends[count] = prev;			
+					ends[count] = prev;
 					file_names[count] = name;
 					file_sizes[count] = size;
 					count++;
@@ -259,14 +260,14 @@
 					remaining -= size;
 					console.log(allocations);
 				}
-				
+
 			}
 			else{
 				alert("Please enter all details!!");
 			}
-	
+
 		}
-	
+
 		function showOutput(){
 			var str = "";
 			var j;
@@ -275,13 +276,13 @@
 			table.setAttribute("class","table table-striped");
 			let thead = document.createElement('thead');
 			let tbody = document.createElement('tbody');
-	
+
 			table.appendChild(thead);
 			table.appendChild(tbody);
-	
+
 			// Adding the entire table to the body tag
 			document.getElementById('table').appendChild(table);
-	
+
 			let row_1 = document.createElement('tr');
 			let heading_1 = document.createElement('th');
 			heading_1.setAttribute("scope","col");
@@ -300,7 +301,7 @@
 			row_1.appendChild(heading_3);
 			row_1.appendChild(heading_4);
 			thead.appendChild(row_1);
-	
+
 			for(var i = index; i < count; i++){
 				let row = document.createElement('tr');
 				let row_data_1 = document.createElement('th');
@@ -312,7 +313,7 @@
 				row_data_3.innerHTML = ends[i];
 				let row_data_4 = document.createElement('td');
 				row_data_4.innerHTML = file_sizes[i];
-	
+
 				row.appendChild(row_data_1);
 				row.appendChild(row_data_2);
 				row.appendChild(row_data_3);
@@ -323,7 +324,7 @@
 				for(j = 0; j < memSize; j++){
 					//console.log(allocations[j], count);
 					if(parseInt(allocations[j]) == i + 1)
-					{	
+					{
 						//console.log(j);
 						str += "-->" + j;
 					}
@@ -334,9 +335,9 @@
 			}
 			index++;
 			document.getElementById("op").innerHTML = str;
-			
+
 		}
-	
+
 		function color(){
 				var hex = '0123456789abcdef';
 				var col = '#';
@@ -344,9 +345,9 @@
 					col += hex[Math.floor(Math.random()*16)]
 				return col;
 			}
-		
+
 	</script>
-	
+
 	</html>
 
 
@@ -368,12 +369,12 @@
 	  <div class="aasecond" >
 		<p>Learn OS with a good simulation in the world of Operating Systems!</p>
 	  </div>
-   
+
 	  <div class="aathird" >
-   
+
 		<button class="btn btn-warning padd" onclick="window.location.href = '../../team.html'">Team Details</button>
 		<button class="btn btn-warning padd" onclick="window.location.href = '../../faq.html'">FAQ's</button>
-   
+
 	  </div><center>
 	 <hr style="width:80%"></center>
 	  <div class="aafourth">
@@ -390,8 +391,9 @@
 			</div>
 			<br>
 		  </div>
-		 
+
     <!-- Footer ends -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    </center>
   </body>
 </html>

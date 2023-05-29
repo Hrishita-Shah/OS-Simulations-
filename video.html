@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <script src="https://cdn.tailwindcss.com"></script>
+
+      <link rel="stylesheet" href="./video.css">
+    <title></title>
+  </head>
+  <body>
+    <!-- Navbar starts -->
+ <nav x-data="{ isOpen: false }" class="relative shadow dark:bg-gray-800" style="background-color:#FFD95A;">
+     <div class="container px-6 py-3 mx-auto md:flex">
+         <div class="flex items-center justify-between">
+             <a href="#">
+                Videos
+             </a>
+
+             <!-- Mobile menu button -->
+             <div class="flex lg:hidden">
+                 <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                     <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                     </svg>
+
+                     <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                     </svg>
+                 </button>
+             </div>
+         </div>
+
+         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+         <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between">
+             <div class="flex flex-col px-2 -mx-4 md:flex-row md:mx-10 md:py-0">
+                 <a href="./index.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Home</a>
+                 <a href="./info/deadlock detection/bankers.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Information</a>
+                 <a href="./simulator/Memory Management/mft.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Simulator</a>
+             </div>
+
+             <div class="relative mt-4 md:mt-0">
+                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+
+                 </span>
+
+                 </div>
+         </div>
+     </div>
+ </nav>
+ <!-- Navbar ends -->
+ <center><h1 style="font-size:400%;">Video References</h1>
+<hr width="30%" style="border-color:black; border: 1px dashed black;" noshade /></center>
+
+<div class="singular">
+    <div class="mycard">
+    <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+        <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(./images/anish2.png)">
+
+          <iframe width="370" height="260" style="border-radius:10px;" src="https://www.youtube.com/embed/bkSWJJZNgf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+            <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">OS Overview</h3>
+
+            <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+                <span class="font-bold text-gray-800 dark:text-gray-200">Gate Smashers</span>
+                <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">Lecture 1</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mycard">
+<div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+    <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(./images/anish2.png)">
+
+      <iframe width="370" height="260" style="border-radius:10px;" src="https://www.youtube.com/embed/WJ-UaAaumNA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+        <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">OS Introduction</h3>
+
+        <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+            <span class="font-bold text-gray-800 dark:text-gray-200">Gate Smashers</span>
+            <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">Lecture 2</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="mycard">
+<div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+    <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(./images/anish2.png)">
+
+      <iframe width="370" height="260" style="border-radius:10px;" src="https://www.youtube.com/embed/povNcHSasgs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+        <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">Batch OS</h3>
+
+        <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+            <span class="font-bold text-gray-800 dark:text-gray-200">Gate Smashers</span>
+            <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">Lecture 3</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="mycard">
+<div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+    <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(./images/anish2.png)">
+
+      <iframe width="370" height="260" style="border-radius:10px;" src="https://www.youtube.com/embed/vBURTt97EkA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+        <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">OS Introduction</h3>
+
+        <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+            <span class="font-bold text-gray-800 dark:text-gray-200">NESO Academy</span>
+            <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">Lecture 1</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="mycard">
+<div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+    <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(./images/anish2.png)">
+
+      <iframe width="370" height="260" style="border-radius:10px;" src="https://www.youtube.com/embed/VjPgYcQqqN0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+        <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">OS System Operations</h3>
+
+        <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+            <span class="font-bold text-gray-800 dark:text-gray-200">NESO Academy</span>
+            <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">Lecture 2</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="mycard">
+<div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+    <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(./images/anish2.png)">
+
+      <iframe width="370" height="260" style="border-radius:10px;" src="https://www.youtube.com/embed/YcRd3WMbXnE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+        <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">OS Storage Structure</h3>
+
+        <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+            <span class="font-bold text-gray-800 dark:text-gray-200">NESO Academy</span>
+            <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">Lecture 3</button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+    </div>
+
+ <br>
+
+
+ <!-- Footer starts -->
+
+<div class="footers" >
+<br>
+ <div class="first" >
+<h1 class="footer-heading"><b>OS - Simulator</b></h1>
+ </div>
+ <div class="second" >
+   <p class="small-spacing">Learn OS with a good simulation in the world of Operating Systems!</p>
+ </div>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ <div class="third" >
+     <button  onclick="window.location.href = './team.html';" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-600 rounded-lg hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-opacity-80 padd links" >Team Details</button>
+   <button  onclick="window.location.href = './faq.html';" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-600 rounded-lg hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-opacity-80 padd" >FAQ's</button>
+
+ </div><center><br>
+<hr style="width:80%" class="spacing"></center>
+<br>
+ <div class="fourth">
+<div class="fourth-left">
+<span class="sidebar-footer-text">Made with <span ><i aria-hidden="true" class="fa fa-heart" style="color:red;" ></i></span> by <a href="https://www.github.com/shivyoddha" class="links"  target="_blank">Anish Kumbhar & Kiran Reddy</a></span>
+</div>
+<div class="fourth-right">
+<a href="#" class="links">Teams</a>
+<a href="#" class="links">Privacy</a>
+<a href="#" class="links">Cookies</a>
+</div>
+ </div>
+ <br>
+</div>
+
+    <!-- Footer ends -->
+  </body>
+</html>
