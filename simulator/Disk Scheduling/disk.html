@@ -7,53 +7,79 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="disk.js"></script>
-        <link rel="stylesheet" type="text/css" href="../Index/css/bootswatch.css" />
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
     </head>
-    <body>
-            <!-- Navigation Bar -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="../Index/index.html#firstPage">Operating System Simulator</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
-                <span class="navbar-toggler-icon"></span>
-              </button>         
+	<style>
 
-                <div class="collapse navbar-collapse" id="navbarColor01">
+.button1 {
+    background-color: #f43a46; 
+    color: #ffffff; 
+    border-radius: 8px;
+    border: 1px solid white;
+  }
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 15px;
+}
+
+.column1 {
+  float: left;
+  width: 30%;
+  padding: 15px;
+  margin:10px
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.body_name{
+    background-color: #f43a46;
+}
+
+.nav {
+	background-color: #f43a46;
+    height: 90px;
+    display:flex;
+    justify-content:space-between;
+    background: rgba(10, 4, 4, 0);
+    position:relative;
+}
+
+	</style>
+    <body class="body_name">
+            <!-- Navigation Bar -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Process Scheduling<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Disk Scheduling</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../Bankers/index.html">Banker's Algorithm</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../Index/index.html#5thpage">Process Synchronization</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Semaphores</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">File Management</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" style="color:white" href="/index.html">Home</a>
                   </li>
                 </ul>
             </div>
         </nav>
             <br>
-            <div class="container">
-                <div class="jumbotron">
-                    <h1 class="display-3">Disk Scheduling</h1>
-                    <p class="lead">Disk scheduling is the method that computer operating systems use to decide in which order the block I/O operations will be submitted to storage volumes. I/O scheduling is sometimes called disk scheduling.</p>
-                    <hr class="my-4">
-                    <p>Some more details here</p>
-                    <p class="lead">
-                      <a class="btn btn-success" href="https://docs.google.com/presentation/d/1xcAL0M9FgeertqbFYN_nitQzvmiQ2tB-FzEII20t9po/present#slide=24" role="button">Wiki</a>
-                    </p>
+            <div class="container-fluid">
+		<div class="row">
+		<div class="column">
+                <div class="jumbotron" style="background-color:#f43a46">
+                    <h1 style="color:white" class="display-3" font color = "white"><strong>Disk Scheduling</strong></h1>
+                    <p style="color:white" class="lead">Disk scheduling refers to the process of determining the order in which disk I/O requests are serviced by a computer's disk subsystem. When multiple I/O requests are pending, the disk scheduling algorithm decides the most efficient way to access the disk to minimize seek time and optimize overall disk performance.<br>
+                        In this simulator we provide you the options to simulate different Disk Scheduling Algorithms like:<br>
+                        1. FCFS<br>
+                        2. SSTF<br>
+                        3. SCAN<br>
+                        4. C-SCAN<br>
+                        5. LOOK<br>
+                        6. C-LOOK<br></p>
+
                 </div>
+		</div>
                 <script>
                 function admSelectCheck(nameSelect)
                 {
@@ -76,59 +102,70 @@
                     }
                 }
                 </script>
-                <form> 
+		<div class="column">
+                <form>
                     <fieldset>
                         <div class="row">
                             <div class="form-group" style="margin-left:50px; float:left;">
-                                <label for="exampleSelect1">Algorithm</label>
-                                  <select class="form-control" id="algorithm" onchange="admSelectCheck(this);">
-                                    <option id="o1" value="fcfs">FCFS</option>
+				<br>
+                                <label style = "color:white" for="exampleSelect1">Algorithm</label>
+                                  <select style="background-color:#fd7f7f" class="form-control" id="algorithm" onchange="admSelectCheck(this);">
+                                    <option id="o1" value="fcfs" >FCFS</option>
                                     <option id="o2" value="sstf">SSTF</option>
                                     <option id="o3" value="scan">SCAN</option>
                                     <option id="o4" value="cscan">C-SCAN</option>
                                     <option id="o5" value="look">LOOK</option>
                                     <option id="o6" value="clook">C-LOOK</option>
-                                    <option id="o7" value="compare">Compare</option>
                                   </select>
                             </div>
-                            <div class="form-group" style="margin-left:50px; float:left;display:none;" id="admDivCheck">
-                                <label for="exampleSelect1">Direction</label>
-                                  <select class="form-control" id="direction">
+                            <div class="form-group" style="margin-left:50px; float:left;" id="admDivCheck">
+				<br>
+                                <label style = "color:white" for="exampleSelect1">Direction</label>
+                                  <select style="background-color:#fd7f7f" class="form-control" id="direction">
                                     <option value="left" selected="selected">Left</option>
                                     <option value="right">Right</option>
                                   </select>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
-                                <label class="col-form-label" for="inputDefault">Sequence of cylinders</label>
-                                <input class="form-control" id="bitstream-input" name="bitstream" placeholder="Space-separated sequence" type="text" size="35">
+			<br>
+			<br>
+                            <div class="form-group" style="margin-left:50px; float:left;  width: 30%">
+				<br>
+                                <label class="col-form-label" style = "color:white" for="inputDefault">Sequence of cylinders</label>
+                                <input style="background-color:#fd7f7f" class="form-control" id="bitstream-input" name="bitstream" placeholder="Space-separated sequence" type="text" size="35">
                             </div>
                             <div class="form-group" style="margin-left:50px; float:left; width: 20%">
-                                <label class="col-form-label" for="inputDefault">Initial cylinder</label>
-                                <input class="form-control" id="initial-input" name="intial"  type="text" size="35">
+				<br>
+                                <label class="col-form-label" style = "color:white" for="inputDefault">Initial cylinder</label>
+                                <input style="background-color:#fd7f7f" class="form-control" id="initial-input" name="intial"  type="text" size="35">
                             </div>
                             <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
-                                <label class="col-form-label" for="inputDefault">Last cylinder</label>
-                                <input class="form-control" id="final-input" name="final"  type="text" size="35">
+				<br>
+                                <label class="col-form-label" style = "color:white" for="inputDefault">Last cylinder</label>
+                                <input style="background-color:#fd7f7f;" class="form-control" id="final-input" name="final"  type="text" size="35">
                             </div>
                         </div>
                     </fieldset>
                 </form>
-                <button type="submit" id="plot-button" class="btn btn-primary" style="margin-left: 36px" onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value, document.getElementById('final-input').value, document.getElementById('algorithm').value,document.getElementById('direction').value)">Plot</button>
-                    
-                
-			</div>        
+		<br>
+		<br>
+                <button type="submit" id="plot-button" class="btn btn-primary" style="margin-left: 36px; background-color: #fd7f7f; color: white;" onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value, document.getElementById('final-input').value, document.getElementById('algorithm').value,document.getElementById('direction').value)">Plot</button>
+
+
+			</div>
+		</div>
 			<br>
 			<br>
             <div class="container">
 				      <div id="alg_name"></div>
-                <div id="alg_seek"></div>   
+                <div id="alg_seek"></div>
 			      </div>
 			      <div class="container">
 			       <div id="graph_area"></div>
             </div>
 			<br>
 			<br>
+</div>
     </body>
 </html>

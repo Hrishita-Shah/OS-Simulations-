@@ -268,13 +268,13 @@
 
 <!-- Section: Design Block -->
 <section class="mb-32 text-gray-800">
-  <h1 class="text-5xl font-bold mb-12 text-center">MFT-FIXED SIZE PARTITION</h1>
+  <h1 class="text-5xl font-bold mb-12 text-center">DINING PHILOSOPHERS</h1>
 
   <div class="flex flex-wrap mb-12">
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/mft1.png" class="w-full" alt="Louvre" />
+        <img src="../../images/dining1.jpeg" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -284,23 +284,14 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-      <h3 class="text-3xl font-bold mb-4 align-center">MFT</h3>
+      <h3 class="text-3xl font-bold mb-4 align-center">Dining Philosophers Problem </h3>
 
       <div class="text-red-600 text-sm mb-4 flex items-center font-medium">
 
 
       </div>
       <p class="text-black-500 mb-6 text-lg">
-        This is the oldest and simplest technique used to put more than one process in the main memory. In this partitioning, the number of partitions (non-overlapping) in RAM is fixed but the size of each partition may or may not be the same. As it is a contiguous allocation, hence no spanning is allowed. Here partitions are made before execution or during system configure.
-
-      </p>
-      <p class="text-black-500 text-lg">
-        As illustrated in above figure, first process is only consuming 1MB out of 4MB in the main memory.
-        Hence, Internal Fragmentation in first block is (4-1) = 3MB.
-        Sum of Internal Fragmentation in every block = (4-1)+(8-7)+(8-7)+(16-14)= 3+1+1+2 = 7MB.
-
-        Suppose process P5 of size 7MB comes. But this process cannot be accommodated in spite of available free space because of contiguous allocation (as spanning is not allowed). Hence, 7MB becomes part of External Fragmentation.
-
+        Dining Philosophers Problem States that there are 5 Philosophers who are engaged in two activities Thinking and Eating. Meals are taken communally in a table with five plates and five forks in a cyclic manner as shown in the figure.
 
       </p>
     </div>
@@ -310,7 +301,7 @@
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/mft2.jpg" class="w-full" alt="Louvre" />
+        <img src="../../images/dining2.jpeg" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -320,11 +311,15 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-      <h3 class="text-3xl font-bold mb-4">First Fit</h3>
+      <h3 class="text-3xl font-bold mb-4"> Constraints and Condition for the problem :</h3>
 
       <p class="text-black-500 text-lg">
-         This method keeps the free/busy list of jobs organized by memory location, low-ordered to high-ordered memory. In this method, first job claims the first available memory with space more than or equal to it’s size. The operating system doesn’t search for appropriate partition but just allocate the job to the nearest memory partition available with sufficient size
-      </p>
+       
+
+Every Philosopher needs two forks in order to eat.
+Every Philosopher may pick up the forks on the left or right but only one fork at once.
+Philosophers only eat when they had two forks. We have to design such a protocol i.e. pre and post protocol which ensures that a philosopher only eats if he or she had two forks.
+Each fork is either clean or dirty.     </p>
     </div>
   </div>
 
@@ -332,7 +327,7 @@
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/bestfit.jpeg" class="w-full" alt="Louvre" />
+        <img src="../../images/dining3.jpeg" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -342,33 +337,21 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-      <h3 class="text-3xl font-bold mb-4">Best Fit</h3>
+      <h3 class="text-3xl font-bold mb-4"> Solution :</h3>
 
       <p class="text-black-500 text-lg">
 
-This method keeps the free/busy list in order by size – smallest to largest. In this method, the operating system first searches the whole of the memory according to the size of the given job and allocates it to the closest-fitting free partition in the memory, making it able to use memory efficiently. Here the jobs are in the order from smallest job to largest job.
-      </p>
+       
+        Correctness properties it needs to satisfy are :
+        
+        Mutual Exclusion Principle –
+        No two Philosophers can have the two forks simultaneously.
+        Free from Deadlock –
+        Each philosopher can get the chance to eat in a certain finite time.
+        Free from Starvation –When few Philosophers are waiting then one gets a chance to eat in a while.   </p>
     </div>
   </div>
-  <div class="flex flex-wrap lg:flex-row-reverse mb-12 lg:items-center">
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
-      <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
-        style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/worstfit.jpeg" class="w-full" alt="Louvre" />
-        <a href="#!">
-          <div
-            class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-            style="background-color: rgba(251, 251, 251, 0.2)"></div>
-        </a>
-      </div>
-    </div>
-  
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-      <h3 class="text-3xl font-bold mb-4">Worst Fit</h3>
-  
-      <p class="text-g-black-500 text-lg">In this allocation technique, the process traverses the whole memory and always search for the largest hole/partition, and then the process is placed in that hole/partition. It is a slow process because it has to traverse the entire memory to search the largest hole.</p>
-    </div>
-  </div>
+
   
 </section>
 <!-- Section: Design Block -->

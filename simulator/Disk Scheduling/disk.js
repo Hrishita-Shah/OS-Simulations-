@@ -37,19 +37,9 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                         if(alg=="clook"){
                                 clook(inp, ini, final);
                         }
-                        if(alg=="compare"){
-                                pre=0;
-                                console.log("hello");
-                                fcfs(inp, ini, final);
-                                sstf(inp, ini, final);
-                                scan(inp, ini, final);
-                                cscan(inp, ini, final);
-                                look(inp, ini, final);
-                                clook(inp, ini, final);
-                                compare();
-                        }
+
                 }
-                
+
                 function fcfs(inp, ini, final){
                         var x1=[];
                         var y1=[];
@@ -67,7 +57,7 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                         seek=seek+Math.abs(inp[a1-2]-inp[a1-1]);
                                 }
                         }
-                
+
                         var layout = {
                                 // title: 'FCFS',
                                 xaxis: {
@@ -91,11 +81,11 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 }
                         };
                         var trace1 = {
-                                x: x1, 
-                                y: y1, 
+                                x: x1,
+                                y: y1,
                                 type: 'scatter'
                         };
-                                
+
                         var data = [trace1];
                         v1=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
@@ -112,7 +102,7 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                         for(a1=0;a1<inp.length;++a1){
                                 visited[a1]=0;
                         }
-                        
+
                         x1.push(ini);
                         y1.push(0);
                         var hold=ini;
@@ -123,7 +113,7 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                         if(visited[a2]==0){
                                                 if(Math.abs(hold-inp[a2])<mn){
                                                         idx=a2;
-                                                        mn=Math.abs(hold-inp[a2]);                 
+                                                        mn=Math.abs(hold-inp[a2]);
                                                 }
                                         }
                                 }
@@ -156,11 +146,11 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 }
                         };
                         var trace1 = {
-                                x: x1, 
-                                y: y1, 
+                                x: x1,
+                                y: y1,
                                 type: 'scatter'
                         };
-                                
+
                         var data = [trace1];
                         v2=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
@@ -177,7 +167,7 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                         for(a1=0;a1<inp.length;++a1){
                                 visited[a1]=0;
                         }
-                        
+
                         x1.push(ini);
                         y1.push(0);
                         inp.sort(function(a, b){return a-b});
@@ -211,9 +201,9 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 for(a1=store+1;a1<inp.length;++a1){
                                         x1.push(inp[a1]);
                                         y1.push(-1*count);
-                                        ++count;      
+                                        ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
-                                        hold=inp[a1];                          
+                                        hold=inp[a1];
                                 }
                         }
                         else{
@@ -223,10 +213,10 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 for(a1=store;a1<inp.length;++a1){
                                         x1.push(inp[a1]);
                                         y1.push(-1*count);
-                                        ++count;      
+                                        ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
                                         console.log(seek);
-                                        hold=inp[a1];                          
+                                        hold=inp[a1];
                                 }
                                 x1.push(final);
                                 y1.push(-1*count);
@@ -242,7 +232,7 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                         console.log(seek);
                                         hold=inp[a1];
                                 }
-                                
+
                         }
                         var layout = {
                                 // title: 'SCAN',
@@ -267,11 +257,11 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 }
                         };
                         var trace1 = {
-                                x: x1, 
-                                y: y1, 
+                                x: x1,
+                                y: y1,
                                 type: 'scatter'
                         };
-                                
+
                         var data = [trace1];
                         v3=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
@@ -292,7 +282,7 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                         for(a1=0;a1<inp.length;++a1){
                                 visited[a1]=0;
                         }
-                        
+
                         x1.push(ini);
                         y1.push(0);
                         inp.sort(function(a, b){return a-b});
@@ -311,7 +301,7 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
                                 var count=1;
-                                for(a1=store;a1>=0;--a1){                                        
+                                for(a1=store;a1>=0;--a1){
                                         x1.push(inp[a1]);
                                         y1.push(-1*count);
                                         ++count;
@@ -326,16 +316,16 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 y2.push(-1*count);
                                 x2.push(final);
                                 y2.push(-1*count);
-                                
+
                                 x3.push(final);
                                 y3.push(-1*count);
                                 ++count;
                                 for(a1=inp.length-1;a1>store;--a1){
                                         x3.push(inp[a1]);
                                         y3.push(-1*count);
-                                        ++count;      
+                                        ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
-                                        hold=inp[a1];                          
+                                        hold=inp[a1];
                                 }
                         }
                         else{
@@ -357,18 +347,18 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 y2.push(-1*count);
                                 x2.push(0);
                                 y2.push(-1*count);
-                                
+
                                 x3.push(0);
                                 y3.push(-1*count);
                                 ++count;
                                 for(a1=0;a1<store;++a1){
                                         x3.push(inp[a1]);
                                         y3.push(-1*count);
-                                        ++count;      
+                                        ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
-                                        hold=inp[a1];                          
+                                        hold=inp[a1];
                                 }
-                                
+
                         }
                         var layout = {
                                 // title: 'C-SCAN',
@@ -393,14 +383,14 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 }
                         };
                         var trace1 = {
-                                x: x1, 
-                                y: y1, 
+                                x: x1,
+                                y: y1,
                                 type: 'scatter',
                                 name: ''
                         };
                         var trace2 = {
-                                x: x2, 
-                                y: y2, 
+                                x: x2,
+                                y: y2,
                                 mode: 'lines',
                                 name: '',
                                 line: {
@@ -409,12 +399,12 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 }
                         };
                         var trace3 = {
-                                x: x3, 
-                                y: y3, 
+                                x: x3,
+                                y: y3,
                                 type: 'scatter',
                                 name: ''
                         };
-                                
+
                         var data = [trace1,trace2,trace3];
                         v4=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
@@ -431,7 +421,7 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                         for(a1=0;a1<inp.length;++a1){
                                 visited[a1]=0;
                         }
-                        
+
                         x1.push(ini);
                         y1.push(0);
                         inp.sort(function(a, b){return a-b});
@@ -457,13 +447,13 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                         seek=seek+Math.abs(hold-inp[a1]);
                                         hold=inp[a1];
                                 }
-                                
+
                                 for(a1=store+1;a1<inp.length;++a1){
                                         x1.push(inp[a1]);
                                         y1.push(-1*count);
-                                        ++count;      
+                                        ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
-                                        hold=inp[a1];                          
+                                        hold=inp[a1];
                                 }
                         }
                         else{
@@ -473,11 +463,11 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 for(a1=store;a1<inp.length;++a1){
                                         x1.push(inp[a1]);
                                         y1.push(-1*count);
-                                        ++count;      
+                                        ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
-                                        hold=inp[a1];                          
+                                        hold=inp[a1];
                                 }
-                                
+
                                 for(a1=store-1;a1>=0;--a1){
                                         x1.push(inp[a1]);
                                         y1.push(-1*count);
@@ -485,7 +475,7 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                         seek=seek+Math.abs(hold-inp[a1]);
                                         hold=inp[a1];
                                 }
-                                
+
                         }
                         var layout = {
                                 // title: 'LOOK',
@@ -510,11 +500,11 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 }
                         };
                         var trace1 = {
-                                x: x1, 
-                                y: y1, 
+                                x: x1,
+                                y: y1,
                                 type: 'scatter'
                         };
-                                
+
                         var data = [trace1];
                         v5=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
@@ -535,7 +525,7 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                         for(a1=0;a1<inp.length;++a1){
                                 visited[a1]=0;
                         }
-                        
+
                         x1.push(ini);
                         y1.push(0);
                         inp.sort(function(a, b){return a-b});
@@ -561,21 +551,21 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                         seek=seek+Math.abs(hold-inp[a1]);
                                         hold=inp[a1];
                                 }
-                                
+
                                 x2.push(hold);
                                 y2.push(-1*(count-1));
                                 x2.push(inp[inp.length-1]);
                                 y2.push(-1*(count-1));
                                 x3.push(inp[inp.length-1]);
                                 y3.push(-1*(count-1));
-                        
+
                                 hold=inp[inp.length-1];
                                 for(a1=inp.length-2;a1>store;--a1){
                                         x3.push(inp[a1]);
                                         y3.push(-1*count);
-                                        ++count;      
+                                        ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
-                                        hold=inp[a1];                          
+                                        hold=inp[a1];
                                 }
                         }
                         else{
@@ -589,24 +579,24 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                         seek=seek+Math.abs(hold-inp[a1]);
                                         hold=inp[a1];
                                 }
-                                
+
                                 x2.push(hold);
                                 y2.push(-1*(count-1));
                                 x2.push(inp[0]);
                                 y2.push(-1*(count-1));
-                                
+
                                 x3.push(inp[0]);
                                 y3.push(-1*(count-1));
-                        
+
                                 hold=inp[0];
                                 for(a1=1;a1<store;++a1){
                                         x3.push(inp[a1]);
                                         y3.push(-1*count);
-                                        ++count;      
+                                        ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
-                                        hold=inp[a1];                          
+                                        hold=inp[a1];
                                 }
-                                
+
                         }
                         var layout = {
                                 // title: 'C-LOOK',
@@ -631,14 +621,14 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 }
                         };
                         var trace1 = {
-                                x: x1, 
-                                y: y1, 
+                                x: x1,
+                                y: y1,
                                 type: 'scatter',
                                 name: ''
                         };
                         var trace2 = {
-                                x: x2, 
-                                y: y2, 
+                                x: x2,
+                                y: y2,
                                 mode: 'lines',
                                 name: '',
                                 line: {
@@ -647,12 +637,12 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                                 }
                         };
                         var trace3 = {
-                                x: x3, 
-                                y: y3, 
+                                x: x3,
+                                y: y3,
                                 type: 'scatter',
                                 name: ''
                         };
-                                
+
                         var data = [trace1,trace2,trace3];
                         v6=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
@@ -660,38 +650,4 @@ var pre,v1,v2,v3,v4,v5,v6,dir;
                         document.getElementById("alg_name").innerHTML = "C-LOOK";
                         }
                 }
-                function compare(){
-                        var avg=(v1+v2+v3+v4+v5+v6)/6.0;
-                        console.log(avg);
-                        document.getElementById("alg_seek").innerHTML = "Mean: "+avg;
-                        document.getElementById("alg_name").innerHTML = "Comparision";
-                        var trace1 = {
-                        x: ['FCFS', 'SSTF', 'SCAN', 'C-SCAN', 'LOOK', 'C-LOOK'],
-                        y: [v1,v2,v3,v4,v5,v6],
-                        type: 'bar',
-                        text: [v1-avg+' from mean', v2-avg+' from mean', v3-avg+' from mean', v4-avg+' from mean', v5-avg+' from mean', v6-avg+' from mean'],    
-                                marker: {
-                                        color: 'rgb(142,124,195)'
-                                }
-                        };
-
-                        var data = [trace1];
-
-                        var layout = {
-                        title: 'Comparision Between Different Algorithms',
-                        font:   {
-                                        family: 'Raleway, snas-serif'
-                                },
-                        showlegend: false,
-                        xaxis:  {
-                                        tickangle: -45
-                                },
-                        yaxis:  {
-                                        zeroline: false,
-                                        gridwidth: 2
-                                },
-                        bargap :0.05
-                        };
-
-                        Plotly.newPlot('graph_area', data, layout);
-                }       
+                    

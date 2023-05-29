@@ -33,7 +33,7 @@
           <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between">
               <div class="flex flex-col px-2 -mx-4 md:flex-row md:mx-10 md:py-0">
                 <a href="../../index.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Home</a>
-                <a href="../../simulator/Disk Scheduling/cscan.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Simulator</a>
+                <a href="../../simulator/Disk Scheduling/fcfs.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Simulator</a>
                 <a href="../../books.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">References</a>
         </div>
  
@@ -268,13 +268,13 @@
 
 <!-- Section: Design Block -->
 <section class="mb-32 text-gray-800">
-  <h1 class="text-5xl font-bold mb-12 text-center">MFT-FIXED SIZE PARTITION</h1>
+  <h1 class="text-5xl font-bold mb-12 text-center">DISK SCHEDULING</h1>
 
   <div class="flex flex-wrap mb-12">
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/mft1.png" class="w-full" alt="Louvre" />
+        <img src="../../images/cscan1.png" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -284,22 +284,14 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-      <h3 class="text-3xl font-bold mb-4 align-center">MFT</h3>
+      <h3 class="text-3xl font-bold mb-4 align-center">C-SCAN</h3>
 
       <div class="text-red-600 text-sm mb-4 flex items-center font-medium">
 
 
       </div>
       <p class="text-black-500 mb-6 text-lg">
-        This is the oldest and simplest technique used to put more than one process in the main memory. In this partitioning, the number of partitions (non-overlapping) in RAM is fixed but the size of each partition may or may not be the same. As it is a contiguous allocation, hence no spanning is allowed. Here partitions are made before execution or during system configure.
-
-      </p>
-      <p class="text-black-500 text-lg">
-        As illustrated in above figure, first process is only consuming 1MB out of 4MB in the main memory.
-        Hence, Internal Fragmentation in first block is (4-1) = 3MB.
-        Sum of Internal Fragmentation in every block = (4-1)+(8-7)+(8-7)+(16-14)= 3+1+1+2 = 7MB.
-
-        Suppose process P5 of size 7MB comes. But this process cannot be accommodated in spite of available free space because of contiguous allocation (as spanning is not allowed). Hence, 7MB becomes part of External Fragmentation.
+        The C-SCAN (Circular SCAN) disk scheduling algorithm improves disk performance by eliminating unnecessary back-and-forth head movement. It scans the disk in a single direction, servicing requests along the way, and quickly returns to the opposite end without servicing any requests. This circular pattern ensures consistent wait times for all requests and prevents stranded requests. C-SCAN is suitable for systems that require fair treatment and minimized wait time variations. It enhances efficiency by reducing unnecessary head movement and provides a consistent experience for all disk requests.
 
 
       </p>
@@ -310,7 +302,7 @@
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/mft2.jpg" class="w-full" alt="Louvre" />
+        <img src="../../images/cscan-2.jpg" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -320,10 +312,12 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-      <h3 class="text-3xl font-bold mb-4">First Fit</h3>
+      <h3 class="text-3xl font-bold mb-4">C-SCAN</h3>
 
       <p class="text-black-500 text-lg">
-         This method keeps the free/busy list of jobs organized by memory location, low-ordered to high-ordered memory. In this method, first job claims the first available memory with space more than or equal to it’s size. The operating system doesn’t search for appropriate partition but just allocate the job to the nearest memory partition available with sufficient size
+        Example:
+Suppose the requests to be addressed are-82,170,43,140,24,16,190. And the Read/Write arm is at 50, and it is also given that the disk arm should move “towards the larger value”. 
+
       </p>
     </div>
   </div>
@@ -342,33 +336,23 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-      <h3 class="text-3xl font-bold mb-4">Best Fit</h3>
+      <h3 class="text-3xl font-bold mb-4">ALGORITHM</h3>
 
       <p class="text-black-500 text-lg">
-
-This method keeps the free/busy list in order by size – smallest to largest. In this method, the operating system first searches the whole of the memory according to the size of the given job and allocates it to the closest-fitting free partition in the memory, making it able to use memory efficiently. Here the jobs are in the order from smallest job to largest job.
+        Let Request array represents an array storing indexes of tracks that have been requested in ascending order of their time of arrival. ‘head’ is the position of disk head.
+        The head services only in the right direction from 0 to the size of the disk.
+        While moving in the left direction do not service any of the tracks.
+        When we reach the beginning(left end) reverse the direction.
+        While moving in the right direction it services all tracks one by one.
+        While moving in the right direction calculate the absolute distance of the track from the head.
+        Increment the total seek count with this distance.
+        Currently serviced track position now becomes the new head position.
+        Go to step 6 until we reach the right end of the disk.
+        If we reach the right end of the disk reverse the direction and go to step 3 until all tracks in the request array have not been serviced.
       </p>
     </div>
   </div>
-  <div class="flex flex-wrap lg:flex-row-reverse mb-12 lg:items-center">
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
-      <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
-        style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/worstfit.jpeg" class="w-full" alt="Louvre" />
-        <a href="#!">
-          <div
-            class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-            style="background-color: rgba(251, 251, 251, 0.2)"></div>
-        </a>
-      </div>
-    </div>
-  
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-      <h3 class="text-3xl font-bold mb-4">Worst Fit</h3>
-  
-      <p class="text-g-black-500 text-lg">In this allocation technique, the process traverses the whole memory and always search for the largest hole/partition, and then the process is placed in that hole/partition. It is a slow process because it has to traverse the entire memory to search the largest hole.</p>
-    </div>
-  </div>
+
   
 </section>
 <!-- Section: Design Block -->

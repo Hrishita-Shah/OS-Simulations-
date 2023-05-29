@@ -269,13 +269,13 @@
   
   <!-- Section: Design Block -->
   <section class="mb-32 text-gray-800">
-    <h1 class="text-5xl font-bold mb-12 text-center">MFT-FIXED SIZE PARTITION</h1>
+    <h1 class="text-5xl font-bold mb-12 text-center">PRODUCER CONSUMERS PROBLEM</h1>
   
     <div class="flex flex-wrap mb-12">
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
         <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
           style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-          <img src="../../images/mft1.png" class="w-full" alt="Louvre" />
+          <img src="../../images/producer1.jpeg" class="w-full" alt="Louvre" />
           <a href="#!">
             <div
               class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -285,23 +285,17 @@
       </div>
   
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-        <h3 class="text-3xl font-bold mb-4 align-center">MFT</h3>
+        <h3 class="text-3xl font-bold mb-4 align-center">Problem</h3>
   
         <div class="text-red-600 text-sm mb-4 flex items-center font-medium">
   
   
         </div>
         <p class="text-black-500 mb-6 text-lg">
-          This is the oldest and simplest technique used to put more than one process in the main memory. In this partitioning, the number of partitions (non-overlapping) in RAM is fixed but the size of each partition may or may not be the same. As it is a contiguous allocation, hence no spanning is allowed. Here partitions are made before execution or during system configure.
-  
-        </p>
-        <p class="text-black-500 text-lg">
-          As illustrated in above figure, first process is only consuming 1MB out of 4MB in the main memory.
-          Hence, Internal Fragmentation in first block is (4-1) = 3MB.
-          Sum of Internal Fragmentation in every block = (4-1)+(8-7)+(8-7)+(16-14)= 3+1+1+2 = 7MB.
-  
-          Suppose process P5 of size 7MB comes. But this process cannot be accommodated in spite of available free space because of contiguous allocation (as spanning is not allowed). Hence, 7MB becomes part of External Fragmentation.
-  
+          The producer-consumer problem is an example of a multi-process synchronization problem. The problem describes two processes, the producer and the consumer that shares a common fixed-size buffer use it as a queue.
+
+          The producer’s job is to generate data, put it into the buffer, and start again.
+          At the same time, the consumer is consuming the data (i.e., removing it from the buffer), one piece at a time.
   
         </p>
       </div>
@@ -311,7 +305,7 @@
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
         <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
           style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-          <img src="../../images/mft2.jpg" class="w-full" alt="Louvre" />
+          <img src="../../images/producer2.jpeg" class="w-full" alt="Louvre" />
           <a href="#!">
             <div
               class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -321,11 +315,10 @@
       </div>
   
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-        <h3 class="text-3xl font-bold mb-4">First Fit</h3>
+        <h3 class="text-3xl font-bold mb-4">   Solution: </h3>
   
         <p class="text-black-500 text-lg">
-           This method keeps the free/busy list of jobs organized by memory location, low-ordered to high-ordered memory. In this method, first job claims the first available memory with space more than or equal to it’s size. The operating system doesn’t search for appropriate partition but just allocate the job to the nearest memory partition available with sufficient size
-        </p>
+       The producer is to either go to sleep or discard data if the buffer is full. The next time the consumer removes an item from the buffer, it notifies the producer, who starts to fill the buffer again. In the same manner, the consumer can go to sleep if it finds the buffer to be empty. The next time the producer puts data into the buffer, it wakes up the sleeping consumer.     </p>
       </div>
     </div>
   
@@ -333,7 +326,7 @@
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
         <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
           style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-          <img src="../../images/bestfit.jpeg" class="w-full" alt="Louvre" />
+          <img src="../../images/producer3.jpeg" class="w-full" alt="Louvre" />
           <a href="#!">
             <div
               class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -343,33 +336,14 @@
       </div>
   
       <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-        <h3 class="text-3xl font-bold mb-4">Best Fit</h3>
+        <h3 class="text-3xl font-bold mb-4">approach</h3>
   
         <p class="text-black-500 text-lg">
   
-  This method keeps the free/busy list in order by size – smallest to largest. In this method, the operating system first searches the whole of the memory according to the size of the given job and allocates it to the closest-fitting free partition in the memory, making it able to use memory efficiently. Here the jobs are in the order from smallest job to largest job.
-        </p>
+          When producer produces an item then the value of “empty” is reduced by 1 because one slot will be filled now. The value of mutex is also reduced to prevent consumer to access the buffer. Now, the producer has placed the item and thus the value of “full” is increased by 1. The value of mutex is also increased by 1 because the task of producer has been completed and consumer can access the buffer.     </p>
       </div>
     </div>
-    <div class="flex flex-wrap lg:flex-row-reverse mb-12 lg:items-center">
-      <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
-        <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
-          style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-          <img src="../../images/worstfit.jpeg" class="w-full" alt="Louvre" />
-          <a href="#!">
-            <div
-              class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-              style="background-color: rgba(251, 251, 251, 0.2)"></div>
-          </a>
-        </div>
-      </div>
-    
-      <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-        <h3 class="text-3xl font-bold mb-4">Worst Fit</h3>
-    
-        <p class="text-g-black-500 text-lg">In this allocation technique, the process traverses the whole memory and always search for the largest hole/partition, and then the process is placed in that hole/partition. It is a slow process because it has to traverse the entire memory to search the largest hole.</p>
-      </div>
-    </div>
+  
     
   </section>
   <!-- Section: Design Block -->
