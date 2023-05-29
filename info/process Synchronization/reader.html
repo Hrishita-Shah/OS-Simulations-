@@ -33,7 +33,7 @@
           <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between">
               <div class="flex flex-col px-2 -mx-4 md:flex-row md:mx-10 md:py-0">
                 <a href="../../index.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Home</a>
-                <a href="../../simulator/Process Synchronization/reader.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">simulator</a>
+                <a href="../../simulator/Process Synchronization/producer.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Simulator</a>
                 <a href="../../books.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">References</a>
         </div>
  
@@ -47,10 +47,9 @@
       </div>
   </nav>    <!-- Navbar ends -->
     <div class="container1" style="background-color: yellow">
-    
         <aside class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
             <a href="#">
-                <img class="w-auto" src="../../images/os1.png" alt="">
+                <img class="w-auto h-7" src="../../images/oslogo.jpeg" alt="">
             </a>
     
             <div class="flex flex-col justify-between flex-1 mt-6">
@@ -101,7 +100,7 @@
                             <span class="mx-2 text-sm font-medium">DINING PHILOSOPHERS</span>
                         </a>
     
-                        <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 bg-gray-200 dark:bg-gray-700" href="#">
+                        <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="./reader.html">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
                             </svg>
@@ -109,7 +108,7 @@
                             <span class="mx-2 text-sm font-medium">READER WRITERS</span>
                         </a>
     
-                        <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="./producer.html">
+                        <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 bg-gray-200 dark:bg-gray-700" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
                             </svg>
@@ -262,128 +261,151 @@
         <div class="left-child " style="background-color:whitesmoke">
 
 
-          <div class="left-child overflow-y-scroll" style="background-color: whitesmoke; height: 740px;">
-            <!-- Container for demo purpose -->
-<!-- Container for demo purpose -->
-<div class="container my-24 px-6 mx-auto">
-
-<!-- Section: Design Block -->
-<section class="mb-32 text-gray-800">
-  <h1 class="text-5xl font-bold mb-12 text-center">MFT-FIXED SIZE PARTITION</h1>
-
-  <div class="flex flex-wrap mb-12">
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
-      <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
-        style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/mft1.png" class="w-full" alt="Louvre" />
-        <a href="#!">
-          <div
-            class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-            style="background-color: rgba(251, 251, 251, 0.2)"></div>
-        </a>
-      </div>
-    </div>
-
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-      <h3 class="text-3xl font-bold mb-4 align-center">MFT</h3>
-
-      <div class="text-red-600 text-sm mb-4 flex items-center font-medium">
-
-
-      </div>
-      <p class="text-black-500 mb-6 text-lg">
-        This is the oldest and simplest technique used to put more than one process in the main memory. In this partitioning, the number of partitions (non-overlapping) in RAM is fixed but the size of each partition may or may not be the same. As it is a contiguous allocation, hence no spanning is allowed. Here partitions are made before execution or during system configure.
-
-      </p>
-      <p class="text-black-500 text-lg">
-        As illustrated in above figure, first process is only consuming 1MB out of 4MB in the main memory.
-        Hence, Internal Fragmentation in first block is (4-1) = 3MB.
-        Sum of Internal Fragmentation in every block = (4-1)+(8-7)+(8-7)+(16-14)= 3+1+1+2 = 7MB.
-
-        Suppose process P5 of size 7MB comes. But this process cannot be accommodated in spite of available free space because of contiguous allocation (as spanning is not allowed). Hence, 7MB becomes part of External Fragmentation.
-
-
-      </p>
-    </div>
-  </div>
-
-  <div class="flex flex-wrap lg:flex-row-reverse mb-12">
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
-      <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
-        style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/mft2.jpg" class="w-full" alt="Louvre" />
-        <a href="#!">
-          <div
-            class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-            style="background-color: rgba(251, 251, 251, 0.2)"></div>
-        </a>
-      </div>
-    </div>
-
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-      <h3 class="text-3xl font-bold mb-4">First Fit</h3>
-
-      <p class="text-black-500 text-lg">
-         This method keeps the free/busy list of jobs organized by memory location, low-ordered to high-ordered memory. In this method, first job claims the first available memory with space more than or equal to it’s size. The operating system doesn’t search for appropriate partition but just allocate the job to the nearest memory partition available with sufficient size
-      </p>
-    </div>
-  </div>
-
-  <div class="flex flex-wrap">
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
-      <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
-        style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/bestfit.jpeg" class="w-full" alt="Louvre" />
-        <a href="#!">
-          <div
-            class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-            style="background-color: rgba(251, 251, 251, 0.2)"></div>
-        </a>
-      </div>
-    </div>
-
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-      <h3 class="text-3xl font-bold mb-4">Best Fit</h3>
-
-      <p class="text-black-500 text-lg">
-
-This method keeps the free/busy list in order by size – smallest to largest. In this method, the operating system first searches the whole of the memory according to the size of the given job and allocates it to the closest-fitting free partition in the memory, making it able to use memory efficiently. Here the jobs are in the order from smallest job to largest job.
-      </p>
-    </div>
-  </div>
-  <div class="flex flex-wrap lg:flex-row-reverse mb-12 lg:items-center">
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
-      <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
-        style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/worstfit.jpeg" class="w-full" alt="Louvre" />
-        <a href="#!">
-          <div
-            class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-            style="background-color: rgba(251, 251, 251, 0.2)"></div>
-        </a>
-      </div>
-    </div>
+          
+            <div class="left-child overflow-y-scroll" style="background-color: whitesmoke; height: 740px;">
+              <!-- Container for demo purpose -->
+  <!-- Container for demo purpose -->
+  <div class="container my-24 px-6 mx-auto">
   
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-      <h3 class="text-3xl font-bold mb-4">Worst Fit</h3>
+  <!-- Section: Design Block -->
+  <section class="mb-32 text-gray-800">
+    <h1 class="text-5xl font-bold mb-12 text-center">READERS WRITERS PROBLEM</h1>
   
-      <p class="text-g-black-500 text-lg">In this allocation technique, the process traverses the whole memory and always search for the largest hole/partition, and then the process is placed in that hole/partition. It is a slow process because it has to traverse the entire memory to search the largest hole.</p>
-    </div>
-  </div>
-  
-</section>
-<!-- Section: Design Block -->
-
-</div>
-<!-- Container for demo purpose -->
-<!-- Container for demo purpose -->
+    <div class="flex flex-wrap mb-12">
+      <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
+        <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
+          style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
+          <img src="../../images/reader1.jpeg" class="w-full" alt="Louvre" />
+          <a href="#!">
+            <div
+              class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
+              style="background-color: rgba(251, 251, 251, 0.2)"></div>
+          </a>
         </div>
+      </div>
+  
+      <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
+        <h3 class="text-3xl font-bold mb-4 align-center">PROBLEM</h3>
+  
+        <div class="text-red-600 text-sm mb-4 flex items-center font-medium">
+  
+  
+        </div>
+        <p class="text-black-500 mb-6 text-lg">
+          Consider a situation where we have a file shared between many people. 
+ 
+
+          If one of the person tries editing the file, no other person should be reading or writing at the same time, otherwise changes will not be visible to him/her.
+          However if some person is reading the file, then others may read it at the same time.
+          Precisely in OS we call this situation as the readers-writers problem 
+          
+          Problem parameters: 
+           
+          
+          One set of data is shared among a number of processes
+          Once a writer is ready, it performs its write. Only one writer may write at a time
+          If a process is writing, no other process can read it
+          If at least one reader is reading, no other process can write
+          Readers may not write and only read 
+  
+        </p>
+      </div>
+    </div>
+  
+    <div class="flex flex-wrap lg:flex-row-reverse mb-12">
+      <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
+        <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
+          style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
+          <img src="../../images/reader2.jpeg" class="w-full" alt="Louvre" />
+          <a href="#!">
+            <div
+              class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
+              style="background-color: rgba(251, 251, 251, 0.2)"></div>
+          </a>
+        </div>
+      </div>
+  
+      <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
+        <h3 class="text-3xl font-bold mb-4">IMPLEMENTATION</h3>
+  
+        <p class="text-black-500 text-lg">
+          Three variables are used: mutex, wrt, readcnt to implement solution 
+ 
+
+semaphore mutex, wrt; // semaphore mutex is used to ensure mutual exclusion when readcnt is updated i.e. when any reader enters or exit from the critical section and semaphore wrt is used by both readers and writers
+int readcnt;  //    readcnt tells the number of processes performing read in the critical section, initially 0
+Functions for semaphore : 
+
+– wait() : decrements the semaphore value. 
+
+– signal() : increments the semaphore value.    </p>
+      </div>
+    </div>
+  
+    <div class="flex flex-wrap">
+      <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
+        <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
+          style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
+          <img src="../../images/reader3.jpeg" class="w-full" alt="Louvre" />
+          <a href="#!">
+            <div
+              class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
+              style="background-color: rgba(251, 251, 251, 0.2)"></div>
+          </a>
+        </div>
+      </div>
+  
+      <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
+        <h3 class="text-3xl font-bold mb-4">ALGORITHM</h3>
+  
+        <p class="text-black-500 text-lg">
+  
+          do {
+    
+            // Reader wants to enter the critical section
+            wait(mutex);
+         
+            // The number of readers has now increased by 1
+            readcnt++;                          
+         
+            // there is atleast one reader in the critical section
+            // this ensure no writer can enter if there is even one reader
+            // thus we give preference to readers here
+            if (readcnt==1)     
+               wait(wrt);                    
+         
+            // other readers can enter while this current reader is inside 
+            // the critical section
+            signal(mutex);                   
+         
+            // current reader performs reading here
+            wait(mutex);   // a reader wants to leave
+         
+            readcnt--;
+         
+            // that is, no reader is left in the critical section,
+            if (readcnt == 0) 
+                signal(wrt);         // writers can enter
+         
+            signal(mutex); // reader leaves
+         
+         } while(true);    </p>
+      </div>
+    </div>
+   
+    
+  </section>
+  <!-- Section: Design Block -->
+  
+  </div>
+  <!-- Container for demo purpose -->
+  <!-- Container for demo purpose -->
+          </div>
 
       </div>
   </div>
 
     <!-- Footer starts -->
-
  
 
     <div class="footers" >

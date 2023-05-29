@@ -33,7 +33,7 @@
           <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between">
               <div class="flex flex-col px-2 -mx-4 md:flex-row md:mx-10 md:py-0">
                 <a href="../../index.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Home</a>
-                <a href="../../simulator/Disk Scheduling/scan.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">About</a>
+                <a href="../../simulator/Disk Scheduling/fcfs.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">About</a>
                 <a href="../../books.html" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">References</a>
         </div>
  
@@ -269,13 +269,13 @@
 
 <!-- Section: Design Block -->
 <section class="mb-32 text-gray-800">
-  <h1 class="text-5xl font-bold mb-12 text-center">MFT-FIXED SIZE PARTITION</h1>
+  <h1 class="text-5xl font-bold mb-12 text-center">SCAN-DISK SCHEDULING</h1>
 
   <div class="flex flex-wrap mb-12">
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/mft1.png" class="w-full" alt="Louvre" />
+        <img src="../../images/scan1.jpeg" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -285,21 +285,14 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-      <h3 class="text-3xl font-bold mb-4 align-center">MFT</h3>
+      <h3 class="text-3xl font-bold mb-4 align-center">SCAN (Elevator) algorithm</h3>
 
       <div class="text-red-600 text-sm mb-4 flex items-center font-medium">
 
 
       </div>
       <p class="text-black-500 mb-6 text-lg">
-        This is the oldest and simplest technique used to put more than one process in the main memory. In this partitioning, the number of partitions (non-overlapping) in RAM is fixed but the size of each partition may or may not be the same. As it is a contiguous allocation, hence no spanning is allowed. Here partitions are made before execution or during system configure.
-
-      </p>
-      <p class="text-black-500 text-lg">
-        As illustrated in above figure, first process is only consuming 1MB out of 4MB in the main memory.
-        Hence, Internal Fragmentation in first block is (4-1) = 3MB.
-        Sum of Internal Fragmentation in every block = (4-1)+(8-7)+(8-7)+(16-14)= 3+1+1+2 = 7MB.
-
+        In SCAN disk scheduling algorithm, head starts from one end of the disk and moves towards the other end, servicing requests in between one by one and reach the other end. Then the direction of the head is reversed and the process continues as head continuously scan back and forth to access the disk. So, this algorithm works as an elevator and hence also known as the elevator algorithm. As a result, the requests at the midrange are serviced more and those arriving behind the disk arm will have to wait.
         Suppose process P5 of size 7MB comes. But this process cannot be accommodated in spite of available free space because of contiguous allocation (as spanning is not allowed). Hence, 7MB becomes part of External Fragmentation.
 
 
@@ -311,7 +304,7 @@
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/mft2.jpg" class="w-full" alt="Louvre" />
+        <img src="../../images/scan2.jpeg" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -321,11 +314,12 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-      <h3 class="text-3xl font-bold mb-4">First Fit</h3>
+      <h3 class="text-3xl font-bold mb-4">Advantages of SCAN (Elevator) algorithm</h3>
 
       <p class="text-black-500 text-lg">
-         This method keeps the free/busy list of jobs organized by memory location, low-ordered to high-ordered memory. In this method, first job claims the first available memory with space more than or equal to it’s size. The operating system doesn’t search for appropriate partition but just allocate the job to the nearest memory partition available with sufficient size
-      </p>
+        This algorithm is simple and easy to understand.
+SCAN algorithm have no starvation.
+This algorithm is better than FCFS Scheduling algorithm .
     </div>
   </div>
 
@@ -333,7 +327,7 @@
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/bestfit.jpeg" class="w-full" alt="Louvre" />
+        <img src="../../images/scan3.jpeg" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -343,33 +337,18 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-      <h3 class="text-3xl font-bold mb-4">Best Fit</h3>
+      <h3 class="text-3xl font-bold mb-4">DISADVANTAGES</h3>
 
       <p class="text-black-500 text-lg">
 
-This method keeps the free/busy list in order by size – smallest to largest. In this method, the operating system first searches the whole of the memory according to the size of the given job and allocates it to the closest-fitting free partition in the memory, making it able to use memory efficiently. Here the jobs are in the order from smallest job to largest job.
+        More complex algorithm to implement.
+        This algorithm is not fair because it cause long waiting time for the cylinders just visited by the head.
+        It causes the head to move till the end of the disk in this way the requests arriving ahead of the arm position would get immediate service but some other requests that arrive behind the arm position will have to wait for the request to complete.
       </p>
     </div>
   </div>
   <div class="flex flex-wrap lg:flex-row-reverse mb-12 lg:items-center">
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
-      <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
-        style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/worstfit.jpeg" class="w-full" alt="Louvre" />
-        <a href="#!">
-          <div
-            class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-            style="background-color: rgba(251, 251, 251, 0.2)"></div>
-        </a>
-      </div>
-    </div>
-  
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-      <h3 class="text-3xl font-bold mb-4">Worst Fit</h3>
-  
-      <p class="text-g-black-500 text-lg">In this allocation technique, the process traverses the whole memory and always search for the largest hole/partition, and then the process is placed in that hole/partition. It is a slow process because it has to traverse the entire memory to search the largest hole.</p>
-    </div>
-  </div>
+ 
   
 </section>
 <!-- Section: Design Block -->

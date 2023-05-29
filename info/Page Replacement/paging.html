@@ -267,13 +267,13 @@
 
 <!-- Section: Design Block -->
 <section class="mb-32 text-gray-800">
-  <h1 class="text-5xl font-bold mb-12 text-center">MFT-FIXED SIZE PARTITION</h1>
+  <h1 class="text-5xl font-bold mb-12 text-center">PAGING TECHNIQUES</h1>
 
   <div class="flex flex-wrap mb-12">
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/mft1.png" class="w-full" alt="Louvre" />
+        <img src="../../images/paging1.jpeg" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -283,23 +283,14 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-      <h3 class="text-3xl font-bold mb-4 align-center">MFT</h3>
+      <h3 class="text-3xl font-bold mb-4 align-center">Paging</h3>
 
       <div class="text-red-600 text-sm mb-4 flex items-center font-medium">
 
 
       </div>
       <p class="text-black-500 mb-6 text-lg">
-        This is the oldest and simplest technique used to put more than one process in the main memory. In this partitioning, the number of partitions (non-overlapping) in RAM is fixed but the size of each partition may or may not be the same. As it is a contiguous allocation, hence no spanning is allowed. Here partitions are made before execution or during system configure.
-
-      </p>
-      <p class="text-black-500 text-lg">
-        As illustrated in above figure, first process is only consuming 1MB out of 4MB in the main memory.
-        Hence, Internal Fragmentation in first block is (4-1) = 3MB.
-        Sum of Internal Fragmentation in every block = (4-1)+(8-7)+(8-7)+(16-14)= 3+1+1+2 = 7MB.
-
-        Suppose process P5 of size 7MB comes. But this process cannot be accommodated in spite of available free space because of contiguous allocation (as spanning is not allowed). Hence, 7MB becomes part of External Fragmentation.
-
+        Paging is a memory management scheme that eliminates the need for contiguous allocation of physical memory. The process of retrieving processes in the form of pages from the secondary storage into the main memory is known as paging. The basic purpose of paging is to separate each procedure into pages. Additionally, frames will be used to split the main memory.This scheme permits the physical address space of a process to be non – contiguous.
 
       </p>
     </div>
@@ -309,7 +300,7 @@
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/mft2.jpg" class="w-full" alt="Louvre" />
+        <img src="../../images/paging2.jpeg" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -319,11 +310,15 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-      <h3 class="text-3xl font-bold mb-4">First Fit</h3>
+      <h3 class="text-3xl font-bold mb-4">Example:</h3>
 
       <p class="text-black-500 text-lg">
-         This method keeps the free/busy list of jobs organized by memory location, low-ordered to high-ordered memory. In this method, first job claims the first available memory with space more than or equal to it’s size. The operating system doesn’t search for appropriate partition but just allocate the job to the nearest memory partition available with sufficient size
-      </p>
+         
+
+If Logical Address = 31 bit, then Logical Address Space = 231 words = 2 G words (1 G = 230)
+If Logical Address Space = 128 M words = 27 * 220 words, then Logical Address = log2 227 = 27 bits
+If Physical Address = 22 bit, then Physical Address Space = 222 words = 4 M words (1 M = 220)
+If Physical Address Space = 16 M words = 24 * 220 words, then Physical Address = log2 224 = 24 bits    </p>
     </div>
   </div>
 
@@ -331,7 +326,7 @@
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
       <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
         style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/bestfit.jpeg" class="w-full" alt="Louvre" />
+        <img src="../../images/paging3.jpeg" class="w-full" alt="Louvre" />
         <a href="#!">
           <div
             class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -341,33 +336,16 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-      <h3 class="text-3xl font-bold mb-4">Best Fit</h3>
+      <h3 class="text-3xl font-bold mb-4">ADVANTAGES</h3>
 
       <p class="text-black-500 text-lg">
 
-This method keeps the free/busy list in order by size – smallest to largest. In this method, the operating system first searches the whole of the memory according to the size of the given job and allocates it to the closest-fitting free partition in the memory, making it able to use memory efficiently. Here the jobs are in the order from smallest job to largest job.
-      </p>
+Reduces internal fragmentation: Paging facilitates to lessen internal fragmentation by using allocating memory in fixed-size blocks (pages),         which might be usually a whole lot smaller than the size of the process’s facts segments. This lets in for greater efficient use of memory in view       that there are fewer unused bytes in each block.
+
+2. Enables reminiscence to be allotted on call for: Paging enables memory to be allocated on call for, this means that that memory is most             effective allocated when it’s far needed. This allows for extra efficient use of memory in view that only the pages that are absolutely used by the       manner want to be allocated inside the physical memory.   </p>
     </div>
   </div>
-  <div class="flex flex-wrap lg:flex-row-reverse mb-12 lg:items-center">
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6 mb-6 lg:mb-0">
-      <div class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
-        style="background-position: 50%" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <img src="../../images/worstfit.jpeg" class="w-full" alt="Louvre" />
-        <a href="#!">
-          <div
-            class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-            style="background-color: rgba(251, 251, 251, 0.2)"></div>
-        </a>
-      </div>
-    </div>
-  
-    <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-      <h3 class="text-3xl font-bold mb-4">Worst Fit</h3>
-  
-      <p class="text-g-black-500 text-lg">In this allocation technique, the process traverses the whole memory and always search for the largest hole/partition, and then the process is placed in that hole/partition. It is a slow process because it has to traverse the entire memory to search the largest hole.</p>
-    </div>
-  </div>
+
   
 </section>
 <!-- Section: Design Block -->
