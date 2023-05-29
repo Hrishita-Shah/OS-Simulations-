@@ -156,7 +156,7 @@ function getInitValues() {
 
 		function handleRemove() {
 			var remove = document.querySelector('#removeNum').value;
-		
+
 			if(parseInt(remove) > numblocks || parseInt(remove) < 0)
 			{
 				render("Cannot remove what does not exist", document.querySelector('#requestMsg'));
@@ -164,8 +164,8 @@ function getInitValues() {
 			}
 			else {
 				filled[parseInt(remove)] = 0;
-				const divEle1 = document.getElementById('blockSize' + remove);
-						console.log('#blockSize' + remove);
+				const divEle1 = document.querySelector('blockSize' + remove);
+						console.log('blockSize' + remove);
 						divEle1.classList.remove("bg-gray-300", "text-gray-600", "cursor-not-allowed","opacity-50");
 				render('Emptied block ' + remove, document.querySelector('#requestMsg'));
 				alert('Emptied block ' + remove);

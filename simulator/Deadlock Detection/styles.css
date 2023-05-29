@@ -1,0 +1,180 @@
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+  background-image: url('bankalgo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#i1{
+  padding:25px;
+}
+
+.input{
+  display: inline-flex;
+}
+
+/* Container styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Column and resources styles */
+.column-div {
+  display: inline-flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.resources-div {
+  display: flex;
+  margin-top: 10px;
+}
+
+/* Heading styles */
+h1 {
+  font-size: 28px;
+  color: whitesmoke;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* Form styles */
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+input[type="number"],
+input[type="text"] {
+  width: 30%;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+button{
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #2ede98;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+button:before,
+button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #05784a;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #2e86de;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  animation: zoning 10s infinite ease-in-out;
+}
+
+@keyframes zoning {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* Output section styles */
+#output-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Matrix input styles */
+.matrix-input {
+  display: inline-block;
+  width: 30%;
+  margin-right: 10px;
+}
+
+.row-div {
+  margin-bottom: 10px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  input[type="number"],
+  input[type="text"] {
+    width: 100%;
+  }
+}
