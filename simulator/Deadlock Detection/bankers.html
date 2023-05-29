@@ -63,9 +63,9 @@
         <script type="text/javascript" src="banker.js"></script>
         <title>Simulation</title>
       </head>
-      <body style="background-color: #bcd9dd">
+      <body style="background-color: #FFD95A;">
         <div class="ki" id="backbutton">
-          <a href="./deadlock.html">
+          <a href="../../index.html">
             <button
               type="button"
               class="btn btn-primary"
@@ -94,8 +94,9 @@
             </button>
           </a>
         </div>
-        <div class="panel-body" style="padding: 10% 22%">
-          <form name="resource">
+        <div class="panel-body" style="padding: 10% 0;padding-left:31%;">
+          <h1>Banker's Algorithm Simulation</h1><br>
+          <form name="resource" >
             <div class="form-group" style="margin-left: 50px; float: left">
               <label style="color: black">Number of Resource types:</label
               ><input
@@ -126,35 +127,35 @@
             </div>
           </form>
           <br /><br />
-    
+
           <table
             id="tab_need"
             class="table table-striped table-hover"
             style="color: black"
           ></table>
-    
+
           <table
             id="tab_alloc"
             class="table table-striped table-hover"
             style="color: black"
           ></table>
-    
+
           <ul id="printing" style="color: black"></ul>
         </div>
         <div class="panel-footer" style="display: flex; justify-content: center">
-         
-            <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-                <button class="btn btn-primary btn-success" onclick="banker()" style="border-radius: 10px; padding: 10px; background-color: #3d7b84">
+
+            <div style="display: absolute; justify-content: center;align-items: center; height: 100vh;">
+                <button class="btn btn-primary btn-success" onclick="banker()" style="width:100px; border-radius: 10px; padding: 10px; background-color: #3d7b84">
                   Run
                 </button>
               </div>
-              
+
           </div>
-          
+
         </div>
       </body>
     </html>
-    
+
 
 
 

@@ -47,10 +47,10 @@
       <title>Producer Consumer Simulation</title>
       <style>
         body {
-          background-color: #293241;
-          color: white;
+          background-color: #FFD95A;
+          color: black;
         }
-      
+
         .container {
           display: flex;
           justify-content: center;
@@ -58,13 +58,13 @@
           flex-direction: column;
           margin-top: 20px;
         }
-      
+
         h1 {
           text-align: center;
           border-bottom: 1px solid white;
           padding-bottom: 10px;
         }
-      
+
         #buffer {
           display: flex;
           flex-wrap: wrap;
@@ -75,55 +75,55 @@
           margin-top: 90px;
           position: relative; /* Add position relative to the buffer */
         }
-      
+
         .element {
           background-color: red;
           width: 40px;
           height: 40px;
           border: 1px solid red;
         }
-      
+
         .element.filled {
           background-color: green;
         }
-      
+
         .buttons {
           display: flex;
           gap: 10px;
           margin-top: 30px;
           padding: 20px 50px;
         }
-      
+
         button {
           background-color: yellow;
           color: black;
           padding: 10px 20px;
-          width: 200px; 
-          height: 50px; 
-          font-size: 20px; 
+          width: 200px;
+          height: 50px;
+          font-size: 20px;
           border: none;
           cursor: pointer;
           margin-top: 50px;
         }
-    
+
         input[type="number"] {
-          padding: 10px; 
-          font-size: 16px; 
-          width: 200px; 
-          height: 40px; 
+          padding: 10px;
+          font-size: 16px;
+          width: 200px;
+          height: 40px;
           margin-top: 35px;
         }
-        
-        
-    
+
+
+
         .element.animate-enter {
       animation: enterAnimation 1s forwards;
     }
-    
+
     .element.animate-move {
       animation: moveAnimation 1s forwards;
     }
-    
+
     @keyframes enterAnimation {
       from {
         opacity: 0;
@@ -134,7 +134,7 @@
         transform: translateX(0);
       }
     }
-    
+
     @keyframes moveAnimation {
       from {
         opacity: 1;
@@ -145,7 +145,7 @@
         transform: translateX(10%);
       }
     }
-    
+
       </style>
     </head>
     <body>
@@ -163,7 +163,7 @@
         </div>
       </div>
       <p id="message"></p>
-    
+
       <script>
         // JavaScript code goes here
         const bufferSizeInput = document.getElementById('buffer-size');
@@ -172,18 +172,18 @@
         const consumeButton = document.getElementById('consume');
         const bufferContainer = document.getElementById('buffer');
         const message = document.getElementById('message');
-    
+
         let buffer = [];
         let bufferSize = 5;
-    
+
         setSizeButton.addEventListener('click', () => {
           bufferSize = parseInt(bufferSizeInput.value);
           clearBuffer();
         });
-    
+
         produceButton.addEventListener('click', produce);
         consumeButton.addEventListener('click', consume);
-    
+
         function clearBuffer() {
           buffer = [];
           bufferContainer.innerHTML = '';
@@ -193,18 +193,18 @@
             bufferContainer.appendChild(element);
           }
         }
-    
+
         function isBufferFull() {
           return buffer.length === bufferSize;
         }
-    
+
         function isBufferEmpty() {
           return buffer.length === 0;
         }
-    
+
         var count = 1;
         var arrow = null; // Store the arrow element
-    
+
         function produce() {
       if (isBufferFull()) {
         alert("Buffer is full");
@@ -214,58 +214,58 @@
         } else {
           count++;
         }
-    
+
         if (buffer.length >= bufferContainer.children.length) {
           buffer.pop();
           bufferContainer.children[bufferContainer.children.length - 1].innerText = '';
           bufferContainer.children[bufferContainer.children.length - 1].classList.remove('filled');
         }
-    
+
         for (var i = buffer.length - 1; i >= 0; i--) {
           bufferContainer.children[i + 1].innerText = buffer[i];
           bufferContainer.children[i + 1].classList.add('filled');
           buffer[i + 1] = buffer[i];
         }
-    
+
         buffer[0] = count;
         bufferContainer.children[0].innerText = count;
         bufferContainer.children[0].classList.add('filled');
-    
+
         if (!arrow) {
           arrow = document.createElement('div');
           arrow.classList.add('arrow');
           bufferContainer.appendChild(arrow);
         }
-    
+
         const firstElement = bufferContainer.children[0];
         const bufferRect = bufferContainer.getBoundingClientRect();
         const elementRect = firstElement.getBoundingClientRect();
-    
+
         arrow.style.top = `${elementRect.top - bufferRect.top + elementRect.height / 2}px`;
         arrow.style.left = `${elementRect.left - bufferRect.left - 10}px`; // Subtract arrow width
-    
+
         // Add animation class to each element
         bufferContainer.children[0].classList.add('animate-enter');
-    
+
         for (var j = 1; j < bufferContainer.children.length; j++) {
           bufferContainer.children[j].classList.add('animate-move');
         }
-    
+
         // Remove animation class after animation ends
         setTimeout(() => {
           bufferContainer.children[0].classList.remove('animate-enter');
-    
+
           for (var j = 1; j < bufferContainer.children.length; j++) {
             bufferContainer.children[j].classList.remove('animate-move');
           }
         }, 1000);
-    
+
         message.innerText = '';
       }
     }
-    
-    
-    
+
+
+
         function consume() {
           if (isBufferEmpty()) {
             count = 1;
@@ -277,12 +277,12 @@
             message.innerText = '';
           }
         }
-    
+
         clearBuffer();
       </script>
     </body>
     </html>
-    
+
 
 
 

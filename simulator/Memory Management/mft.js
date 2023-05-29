@@ -40,6 +40,7 @@ function getInitValues() {
 				flag++;
 			if(blockSize == 0) {
 				render("Blocksize can't be zero", document.querySelector('#requestMsg'));
+				alert("Blocksize can't be zero");
 				flag++;
 			}
 			blocks[i] = blockSize
@@ -48,7 +49,10 @@ function getInitValues() {
 			console.log(filled[i]);
 		}
 		if(parseInt(flag))
+		{
 			render("Block size can't be zero/negative", document.querySelector('#requestMsg'));
+			alert("Block size can't be zero/negative");
+		}
 		else {
 			//check if blocksizes don't exceed the total size
 			var blockSum = 0;
@@ -57,9 +61,15 @@ function getInitValues() {
 			console.log(blockSum);
 			console.log(totalsize);
 			if(blockSum > totalsize)
+			{
 				render('Entered block sizes do not match the total size! Re-enter the block sizes.', document.querySelector('#requestMsg'));
+				alert('Entered block sizes do not match the total size! Re-enter the block sizes.');
+			}
 			else
+			{
 				render('Block sizes set successfully', document.querySelector('#requestMsg'));
+				alert('Block sizes set successfully');
+			}
 			var requestBtn = document.querySelector('#submitRequestBtn');
 			requestBtn.onclick = handleRequest;
 
@@ -71,7 +81,10 @@ function getInitValues() {
 			var requestSize = document.querySelector('#requestSize').value;
 			var algo = document.getElementById('sel1');
 			if(parseInt(requestSize) < 0)
+			{
 				render("Request can't be negative", document.querySelector('#requestMsg'));
+				alert("Request can't be negative");
+			}
 			else {
 				if (algo.value === 'First Fit') {
 					for(i = 0; i < numblocks; i++) {
@@ -80,8 +93,11 @@ function getInitValues() {
 						//console.log(filled[i]);
 						if(parseInt(blocks[i]) >= parseInt(requestSize) && filled[i] == 0) {
 							filled[i] = 1;
+							const divEle1 = document.getElementById('blockSize' + i);
+					  	console.log('#blockSize' + i);
+					   	divEle1.classList.add("bg-gray-300", "text-gray-600", "cursor-not-allowed","opacity-50");
 							render('Allocated block ' + i + ' to the request', document.querySelector('#requestMsg'));
-
+              alert('Allocated block ' + i + ' to the request');
 							alloc = i;
 							break;
 						}
@@ -100,8 +116,12 @@ function getInitValues() {
 					if (bestIndex != -1) {
 						i = bestIndex;
 						filled[i] = 1;
-						render('Allocated block ' + i + ' to the request', document.querySelector('#requestMsg'));
 						alloc = i;
+						const divEle1 = document.getElementById('blockSize' + i);
+						console.log('#blockSize' + i);
+						divEle1.classList.add("bg-gray-300", "text-gray-600", "cursor-not-allowed","opacity-50");
+						render('Allocated block ' + i + ' to the request', document.querySelector('#requestMsg'));
+						alert('Allocated block ' + i + ' to the request');
 					}
 				}
 				else if (algo.value === 'Worst Fit') {
@@ -118,23 +138,37 @@ function getInitValues() {
 					if (worstIndex != -1) {
 						i = worstIndex;
 						filled[i] = 1;
+						const divEle1 = document.getElementById('blockSize' + i);
+						console.log('#blockSize' + i);
+						divEle1.classList.add("bg-gray-300", "text-gray-600", "cursor-not-allowed","opacity-50");
 						render('Allocated block ' + i + ' to the request', document.querySelector('#requestMsg'));
+						alert('Allocated block ' + i + ' to the request');
 						alloc = i;
 					}
 				}
 			}
 			if(alloc == -1)
+			{
 				render("Request couldn't be accomodated.", document.querySelector('#requestMsg'));
+				alert("Request couldn't be accomodated.");
+			}
 		}
 
 		function handleRemove() {
 			var remove = document.querySelector('#removeNum').value;
-			console.log
+		
 			if(parseInt(remove) > numblocks || parseInt(remove) < 0)
+			{
 				render("Cannot remove what does not exist", document.querySelector('#requestMsg'));
+				alert("Cannot remove what does not exist");
+			}
 			else {
 				filled[parseInt(remove)] = 0;
+				const divEle1 = document.getElementById('blockSize' + remove);
+						console.log('#blockSize' + remove);
+						divEle1.classList.remove("bg-gray-300", "text-gray-600", "cursor-not-allowed","opacity-50");
 				render('Emptied block ' + remove, document.querySelector('#requestMsg'));
+				alert('Emptied block ' + remove);
 			}
 		}
 	}
