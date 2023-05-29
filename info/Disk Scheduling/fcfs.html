@@ -342,12 +342,15 @@
 
       <p class="text-black-500 text-lg">
 
-        Advantages of C-SCAN (Circular Elevator) Disk Scheduling Algorithm:
-        Works well with moderate to heavy loads.
-        It provides better response time and uniform waiting time.
-        Disadvantages of C-SCAN (Circular Elevator) Disk Scheduling Algorithm:
-        May not be fair to service requests for tracks at the extreme end.
-        It has more seek movements as compared to the SCAN Algorithm.
+        First Come First Serve algorithm has a very simple logic, it executes the process requests one by one in the sequence they arrive.
+        Thus, First Come First Serve is very simple and easy to understand and implement.
+        In FCFS eventually, each and every process gets a chance to execute, so no starvation occur.
+        Disadvantages –
+        
+        This scheduling algorithm is nonpreemptive, which means the process can’t be stopped in middle of execution and will run it’s full course.
+        FCFS being a nonpreemptive scheduling algorithm, the short processes which are at the back of the queue have to wait for the long process at the front to finish
+        The throughput of FCFS is not very efficient.
+        FCFS is implemented on small systems only where input-output efficiency is not of utmost importance
       </p>
     </div>
   </div>
